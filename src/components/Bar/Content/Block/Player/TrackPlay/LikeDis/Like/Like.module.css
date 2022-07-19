@@ -1,0 +1,29 @@
+.track-play__like {
+  padding: 5px;
+}
+
+.track-play__like-svg {
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+._btn-icon:hover svg {
+  fill: transparent;
+  stroke: #acacac;
+  cursor: pointer;
+}
+
+._btn-icon:active svg {
+  fill: transparent;
+  stroke: #ffffff;
+  cursor: pointer;
+}
+
+._btn-icon:active,
+._btn-icon:active {
+  fill: #696969;
+  stroke: #ffffff;
+  cursor: pointer;
+}

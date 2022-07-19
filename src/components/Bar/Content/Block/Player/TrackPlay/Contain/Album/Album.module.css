@@ -1,0 +1,12 @@
+.track-play__album {
+  grid-area: album;
+  min-width: 49px;
+}
+
+.track-play__album-link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+  color: #ffffff;
+}

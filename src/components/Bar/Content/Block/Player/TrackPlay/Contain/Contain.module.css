@@ -1,0 +1,7 @@
+.track-play__contain {
+    width: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "image author" "image album";
+    align-items: center;
+  }

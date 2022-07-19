@@ -1,0 +1,33 @@
+.track-play__dislike {
+  padding: 5px;
+}
+
+.track-play__dislike {
+  margin-left: 28.5px;
+}
+
+.track-play__dislike-svg {
+  width: 14.34px;
+  height: 13px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+._btn-icon:hover svg {
+  fill: transparent;
+  stroke: #acacac;
+  cursor: pointer;
+}
+
+._btn-icon:active svg {
+  fill: transparent;
+  stroke: #ffffff;
+  cursor: pointer;
+}
+
+._btn-icon:active,
+._btn-icon:active {
+  fill: #696969;
+  stroke: #ffffff;
+  cursor: pointer;
+}

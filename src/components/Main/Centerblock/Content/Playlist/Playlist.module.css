@@ -1,0 +1,6 @@
+.playlist {}
+.content__playlist {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
