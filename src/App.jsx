@@ -1,9 +1,8 @@
 import './App.css'
-import Nav from './components/Navigation/Nav'
-import Centerblock from './components/Centerblock/Centerblock'
-import Sidebar from './components/Sidebar/Sidebar'
-import Player from './components/Player/Player'
-import Footer from './components/Footer/Footer'
+import Nav from './components/Navigation'
+import MainContent from './components/MainContent'
+import Sidebar from './components/Sidebar'
+import Player from './components/Player'
 
 function App() {
   return (
@@ -11,11 +10,10 @@ function App() {
       <div className="container">
         <main className="main">
           <Nav />
-          <Centerblock />
+          <MainContent />
           <Sidebar />
         </main>
         <Player />
-        <Footer />
       </div>
     </div>
   )

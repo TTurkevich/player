@@ -13,3 +13,15 @@
   align-items: center;
   justify-content: flex-end;
 }
+
+.volume__image {
+  width: 13px;
+  height: 18px;
+  margin-right: 17px;
+}
+
+.volume__svg {
+  width: 13px;
+  height: 18px;
+  fill: transparent;
+}
