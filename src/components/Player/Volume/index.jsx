@@ -1,13 +1,17 @@
-import classes from './Volume.module.css'
-import VolumeSpeaker from '../../icons/VolumeSpeaker'
+import classes from './index.module.css'
+import cn  from 'classnames'
+import GlobalSvgSelector from '../../GlobalSvg'
 import VolumeProgress from '../VolumeProgress'
 
 const Volume = () => {
   return (
-    <div className={`${classes['bar__volume-block']} ${classes.volume}`}>
+    <div className={cn(classes['bar__volume-block'], classes.volume)}>
       <div className={classes.volume__content}>
         <div className={classes.volume__image}>
-          <VolumeSpeaker className={classes.volume__svg} />
+          <GlobalSvgSelector
+            id="VolumeSpeaker"
+            iconClassName={classes['volume__svg']}
+          />
         </div>
         <VolumeProgress />
       </div>

@@ -1,8 +1,9 @@
-import classes from './Menu.module.css'
+import classes from './index.module.css'
+import cn  from 'classnames'
 
 const Menu = () => {
   return (
-    <div className={`${classes.nav__menu} ${classes.menu}`}>
+    <div className={cn(classes.nav__menu, classes.menu)}>
       <ul className={classes.menu__list}>
         <li className={classes.menu__item}>
           <a href="http://" className={classes.menu__link}>

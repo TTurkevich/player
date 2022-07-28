@@ -1,51 +1,52 @@
-import classes from './Buttons.module.css'
-import Prev from '../../icons/Prev'
-import Play from '../../icons/Play'
-import Next from '../../icons/Next'
-import Repeat from '../../icons/Repeat'
-import Shuffle from '../../icons/Shuffle'
+import classes from './index.module.css'
+import GlobalSvgSelector from '../../GlobalSvg'
 
-const icons = [Prev, Play, Next, Repeat, Shuffle]
-
-const addProps = [
+const icons = [
   {
-    classNameDiv: ['player__btn-prev'],
-    classNameIcon: 'player__btn-prev-svg',
+    key: 1,
+    id: 'Prev',
+    wrapperClassName: ['player__btn-prev'],
+    iconClassName: 'player__btn-prev-svg',
   },
   {
-    classNameDiv: ['player__btn-play', '_btn'],
-    classNameIcon: 'player__btn-play-svg',
+    key: 2,
+    id: 'Play',
+    wrapperClassName: ['player__btn-play', '_btn'],
+    iconClassName: 'player__btn-play-svg',
   },
   {
-    classNameDiv: ['player__btn-next'],
-    classNameIcon: 'player__btn-next-svg',
+    key: 3,
+    id: 'Next',
+    wrapperClassName: ['player__btn-next'],
+    iconClassName: 'player__btn-next-svg',
   },
   {
-    classNameDiv: ['player__btn-repeat', '_btn-icon'],
-    classNameIcon: 'player__btn-repeat-svg',
+    key: 4,
+    id: 'Repeat',
+    wrapperClassName: ['player__btn-repeat', '_btn-icon'],
+    iconClassName: 'player__btn-repeat-svg',
   },
   {
-    classNameDiv: ['player__btn-shuffle', '_btn-icon'],
-    classNameIcon: 'player__btn-shuffle-svg',
+    key: 5,
+    id: 'Shuffle',
+    wrapperClassName: ['player__btn-shuffle', '_btn-icon'],
+    iconClassName: 'player__btn-shuffle-svg',
   },
 ]
-
-function getClass(arr) {
-  return arr.map((item) => `${classes[item]}`).join(' ')
-}
 
 const Buttons = () => {
   return (
     <div className={classes.player__controls}>
-      {icons.map((Icon) => (
+      {icons.map((icon) => (
         <div
-          key={Icon.index}
-          className={getClass(addProps[icons.indexOf(Icon)].classNameDiv)}
+          key={icon.key}
+          className={icon.wrapperClassName
+            .map((item) => `${classes[item]}`)
+            .join(' ')}
         >
-          <Icon
-            className={
-              classes[`${addProps[icons.indexOf(Icon)].classNameIcon}`]
-            }
+          <GlobalSvgSelector
+            id={icon.id}
+            iconClassName={classes[`${icon.iconClassName}`]}
           />
         </div>
       ))}

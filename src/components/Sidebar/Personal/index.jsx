@@ -1,4 +1,4 @@
-import classes from './Personal.module.css'
+import classes from './index.module.css'
 
 const Personal = () => {
   return (

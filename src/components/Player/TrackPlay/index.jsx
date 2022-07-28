@@ -1,24 +1,28 @@
-import classes from './TrackPlay.module.css'
-import Note from '../../icons/Note'
-import Author from '../../TrackItems/Author'
-import Album from '../../TrackItems/Album'
+import classes from './index.module.css'
+import cn  from 'classnames'
+import GlobalSvgSelector from '../../GlobalSvg'
+import Author from '../../TrackItem/Author'
+import Album from '../../TrackItem/Album'
 import LikeDislike from '../LikeDislike'
 
 const TrackPlay = () => {
   return (
-    <div className={`${classes['player__track-play']} ${'track-play'}`}>
+    <div className={cn(classes['player__track-play'], classes['track-play'])}>
       <div className={classes['track-play__contain']}>
         <div className={classes['track-play__image']}>
-          <Note className={classes['track-play__svg']} />
+          <GlobalSvgSelector
+            id="Note"
+            iconClassName={classes['track-play__svg']}
+          />
         </div>
         <Author
-          classNameDiv={classes['track-play__author']}
-          classNameLink={classes['track-play__author-link']}
+          wrapperClassName={classes['track-play__author']}
+          linkClassName={classes['track-play__author-link']}
           title="Ты та..."
         />
         <Album
-          classNameDiv={classes['track-play__album']}
-          classNameLink={classes['track-play__album-link']}
+          wrapperClassName={classes['track-play__album']}
+          linkClassName={classes['track-play__album-link']}
           title="Баста"
         />
       </div>

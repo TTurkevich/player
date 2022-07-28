@@ -1,4 +1,4 @@
-import classes from './Player.module.css'
+import classes from './index.module.css'
 import Controls from './Controls'
 import Volume from './Volume'
 

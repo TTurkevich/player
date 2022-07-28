@@ -1,10 +1,11 @@
-import classes from './Sidebar.module.css'
+import classes from './index.module.css'
+import cn  from 'classnames'
 import Personal from './Personal'
 import Recommendations from './Recommendations'
 
 const Sidebar = () => {
   return (
-    <div className={`${classes.main__sidebar} ${classes.sidebar}`}>
+    <div className={cn(classes.main__sidebar, classes.sidebar)}>
       <Personal />
       <Recommendations />
     </div>

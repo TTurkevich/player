@@ -1,11 +1,12 @@
-import classes from './Controls.module.css'
+import classes from './index.module.css'
+import cn  from 'classnames'
 import Buttons from '../Buttons'
 import TrackPlay from '../TrackPlay'
 
 
 const Controls = () => {
     return (
-      <div className={`${classes.bar__player} ${classes.player}`}>
+      <div className={cn(classes.bar__player, classes.player)}>
         <Buttons />
         <TrackPlay />
       </div>

@@ -1,4 +1,4 @@
-import classes from './Selections.module.css'
+import classes from './index.module.css'
 
 const Selections = (props) => {
   return (

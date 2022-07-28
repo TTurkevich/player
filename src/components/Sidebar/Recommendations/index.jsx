@@ -1,4 +1,4 @@
-import classes from './Recommendations.module.css'
+import classes from './index.module.css'
 import Selections from '../Selections'
 
 const Recommendations = () => {
@@ -7,15 +7,15 @@ const Recommendations = () => {
       <div className={classes.sidebar__list}>
         <Selections
           image={process.env.PUBLIC_URL + 'img/playlist01.png'}
-          alt={"day's playlist"}
+          alt="day's playlist"
         />
         <Selections
           image={process.env.PUBLIC_URL + 'img/playlist02.png'}
-          alt={"dance"}
+          alt="dance"
         />
         <Selections
           image={process.env.PUBLIC_URL + 'img/playlist03.png'}
-          alt={"energie"}
+          alt="energie"
         />
       </div>
     </div>
