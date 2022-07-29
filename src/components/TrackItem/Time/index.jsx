@@ -1,9 +1,9 @@
-import GlobalSvgSelector from '../../GlobalSvg'
+import Like from '../../Svg/Like'
 
 const Time = ({ wrapperClassName, className, timeClassName, time }) => {
   return (
     <div className={wrapperClassName}>
-      <GlobalSvgSelector id="Like" iconClassName={className} />
+      <Like iconClassName={className} />
       <span className={timeClassName}>{time}</span>
     </div>
   )

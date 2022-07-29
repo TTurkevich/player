@@ -1,35 +1,39 @@
 import classes from './index.module.css'
-import GlobalSvgSelector from '../../GlobalSvg'
+import Prev from '../../Svg/Prev'
+import Play from '../../Svg/Play'
+import Next from '../../Svg/Next'
+import Repeat from '../../Svg/Repeat'
+import Shuffle from '../../Svg/Shuffle'
 
 const icons = [
   {
     key: 1,
-    id: 'Prev',
-    wrapperClassName: ['player__btn-prev'],
+    name: Prev,
+    wrapperClassName: ['player__btn-prev', '_btn', '_btn-icon'],
     iconClassName: 'player__btn-prev-svg',
   },
   {
     key: 2,
-    id: 'Play',
-    wrapperClassName: ['player__btn-play', '_btn'],
+    name: Play,
+    wrapperClassName: ['player__btn-play', '_btn', '_btn-icon'],
     iconClassName: 'player__btn-play-svg',
   },
   {
     key: 3,
-    id: 'Next',
-    wrapperClassName: ['player__btn-next'],
+    name: Next,
+    wrapperClassName: ['player__btn-next', '_btn', '_btn-icon'],
     iconClassName: 'player__btn-next-svg',
   },
   {
     key: 4,
-    id: 'Repeat',
-    wrapperClassName: ['player__btn-repeat', '_btn-icon'],
+    name: Repeat,
+    wrapperClassName: ['player__btn-repeat', '_btn', '_btn-icon'],
     iconClassName: 'player__btn-repeat-svg',
   },
   {
     key: 5,
-    id: 'Shuffle',
-    wrapperClassName: ['player__btn-shuffle', '_btn-icon'],
+    name: Shuffle,
+    wrapperClassName: ['player__btn-shuffle', '_btn', '_btn-icon'],
     iconClassName: 'player__btn-shuffle-svg',
   },
 ]
@@ -44,10 +48,7 @@ const Buttons = () => {
             .map((item) => `${classes[item]}`)
             .join(' ')}
         >
-          <GlobalSvgSelector
-            id={icon.id}
-            iconClassName={classes[`${icon.iconClassName}`]}
-          />
+          <icon.name iconClassName={classes[`${icon.iconClassName}`]} />
         </div>
       ))}
     </div>

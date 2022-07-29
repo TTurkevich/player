@@ -1,22 +1,20 @@
-.nav__menu {
-    display: block;
-    visibility: visible;
+.menu {
+  display: block;
+  visibility: visible;
 }
 
-.menu {}
-
-.menu__list {
-    padding: 18px 0 10px 0;
+.list {
+  padding: 18px 0 10px 0;
 }
 
-.menu__item {
-    padding: 5px 0;
-    margin-bottom: 16px;
+.item {
+  padding: 5px 0;
+  margin-bottom: 16px;
 }
 
-.menu__link {
-    color: #FFFFFF;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+.link {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }

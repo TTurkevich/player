@@ -1,22 +1,21 @@
 import classes from './index.module.css'
-import cn  from 'classnames'
 
 const Menu = () => {
   return (
-    <div className={cn(classes.nav__menu, classes.menu)}>
-      <ul className={classes.menu__list}>
-        <li className={classes.menu__item}>
-          <a href="http://" className={classes.menu__link}>
+    <div className={classes.menu}>
+      <ul className={classes.list}>
+        <li className={classes.item}>
+          <a href="http://" className={classes.link}>
             Главное
           </a>
         </li>
-        <li className={classes.menu__item}>
-          <a href="http://" className={classes.menu__link}>
+        <li className={classes.item}>
+          <a href="http://" className={classes.link}>
             Мой плейлист
           </a>
         </li>
-        <li className={classes.menu__item}>
-          <a href="http://" className={classes.menu__link}>
+        <li className={classes.item}>
+          <a href="http://" className={classes.link}>
             Войти
           </a>
         </li>

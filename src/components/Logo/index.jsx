@@ -1,11 +1,10 @@
 import classes from './index.module.css'
-import cn  from 'classnames'
 
 const Logo = () => {
   return (
-    <div className={cn(classes.nav__logo, classes.logo)}>
+    <div className={classes.logo}>
       <img
-        className={classes.logo__image}
+        className={classes.image}
         src={process.env.PUBLIC_URL + '/img/logo.png'}
         alt="logo"
       ></img>

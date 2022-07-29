@@ -8,13 +8,13 @@
   align-items: center;
 }
 
-.track__title-text {}
+.text {}
 
 .track__album {
   width: 245px;
 }
 
-.track__album-link {
+.album-link {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -28,7 +28,7 @@
   justify-content: flex-start;
 }
 
-.track__author-link {
+.author-link {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -40,7 +40,7 @@
 .track__time {
 }
 
-.track__time-svg {
+.time-svg {
   width: 14px;
   height: 12px;
   margin-right: 17px;
@@ -48,19 +48,13 @@
   stroke: #696969;
 }
 
-.track__time-text {
+.time-text {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-align: right;
   color: #696969;
-}
-
-.playlist__item {
-  width: 100%;
-  display: block;
-  margin-bottom: 12px;
 }
 
 .track__title {
@@ -70,7 +64,7 @@
   width: 447px;
 }
 
-.track__title-image {
+.title-image {
   width: 51px;
   height: 51px;
   padding: 16px;
@@ -81,14 +75,14 @@
   margin-right: 17px;
 }
 
-.track__title-svg {
+.title-svg {
   width: 18px;
   height: 17px;
   fill: transparent;
   stroke: #4E4E4E;
 }
 
-.track__title-link {
+.title-link {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -96,10 +90,19 @@
   color: #FFFFFF;
 }
 
-.track__title-span {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #4E4E4E;
+._btn {
+  cursor: pointer;
 }
+
+._btn-icon:hover svg{
+  fill: transparent;
+  stroke: #ACACAC;
+  cursor: pointer;
+}
+
+._btn-icon:active svg{
+  fill: #696969;
+  stroke: #FFFFFF;
+  cursor: pointer;
+}
+

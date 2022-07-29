@@ -3,8 +3,8 @@ import Selections from '../Selections'
 
 const Recommendations = () => {
   return (
-    <div className={classes.sidebar__block}>
-      <div className={classes.sidebar__list}>
+    <div className={classes.block}>
+      <div className={classes.list}>
         <Selections
           image={process.env.PUBLIC_URL + 'img/playlist01.png'}
           alt="day's playlist"

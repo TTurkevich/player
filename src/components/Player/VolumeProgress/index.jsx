@@ -5,7 +5,7 @@ const VolumeProgress = () => {
   return (
     <div className={cn(classes['volume__progress'], classes['_btn'])}>
       <input
-        className={classes['volume__progress-line _btn']}
+        className={cn(classes['line'], classes['_btn'])}
         type="range"
         name="range"
       ></input>

@@ -6,7 +6,7 @@
     padding: 12px 0 15px 0;
 }
 
-.sidebar__personal-name {
+.name {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -15,7 +15,7 @@
     margin-right: 16px;
 }
 
-.sidebar__avatar {
+.avatar {
     width: 43px;
     height: 43px;
     background-color: #313131;

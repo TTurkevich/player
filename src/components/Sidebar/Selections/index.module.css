@@ -1,18 +1,18 @@
-.sidebar__item {
+.item {
   width: 250px;
   height: 150px;
 }
 
-.sidebar__item:not(:last-child) {
+.item:not(:last-child) {
   margin-bottom: 30px;
 }
 
-.sidebar__link {
+.link {
   width: 100%;
   height: 100%;
 }
 
-.sidebar__img {
+.img {
   width: 100%;
   height: auto;
 }

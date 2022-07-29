@@ -1,23 +1,16 @@
 import classes from './index.module.css'
-import cn  from 'classnames'
-import GlobalSvgSelector from '../../GlobalSvg'
+import cn from 'classnames'
+import Like from '../../Svg/Like'
+import Dislike from '../../Svg/Dislike'
 
 const LikeDislike = () => {
   return (
-    <div
-      className={cn(classes['track-play__like-dis'], classes['_btn-icon'])}
-    >
-      <div className={classes['track-play__like']}>
-        <GlobalSvgSelector
-          id="Like"
-          iconClassName={classes['track-play__like-svg']}
-        />
+    <div className={classes['track-play__like-dis']}>
+      <div className={cn(classes.like, classes['_btn-icon'], classes['_btn'])}>
+        <Like iconClassName={classes['like-svg']} />
       </div>
-      <div className={classes['track-play__dislike']}>
-        <GlobalSvgSelector
-          id="Dislike"
-          iconClassName={classes['track-play__dislike-svg']}
-        />
+      <div className={cn(classes.dislike, classes['_btn-icon'], classes['_btn'])}>
+        <Dislike iconClassName={classes['dislike-svg']} />
       </div>
     </div>
   )

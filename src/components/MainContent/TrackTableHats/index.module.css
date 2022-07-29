@@ -9,7 +9,7 @@
 .playlist-title {
 }
 
-.playlist-title__col {
+.col {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -19,7 +19,7 @@
   text-transform: uppercase;
 }
 
-.playlist-title__svg {
+.svg {
   width: 12px;
   height: 12px;
   fill: transparent;

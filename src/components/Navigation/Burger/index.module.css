@@ -1,4 +1,4 @@
-.nav__burger {
+.burger {
   width: 20px;
   height: 36px;
   padding: 13px 0;
@@ -7,10 +7,14 @@
   justify-content: space-between;
 }
 
-.burger {}
-.burger__line {
+
+.line {
   display: inline-block;
   width: 100%;
   height: 1px;
   background-color: #d3d3d3;
+}
+
+.burger:hover {
+  cursor: pointer;
 }

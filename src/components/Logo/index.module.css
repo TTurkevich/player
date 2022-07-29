@@ -1,4 +1,4 @@
-.nav__logo {
+.logo {
   width: 113.33px;
   height: 43px;
   padding: 13px 0 13px 0;
@@ -6,9 +6,7 @@
   margin-bottom: 20px;
 }
 
-.logo {}
-
-.logo__image {
+.image {
   width: 113.33px;
   height: 17px;
   color: #181818;

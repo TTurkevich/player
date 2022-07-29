@@ -89,7 +89,6 @@
   cursor: pointer;
 }
 
-._btn-icon:active,
 ._btn-icon:active {
   fill: #696969;
   stroke: #FFFFFF;

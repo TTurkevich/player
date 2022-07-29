@@ -2,10 +2,10 @@ import classes from './index.module.css'
 
 const Selections = (props) => {
   return (
-    <div className={classes.sidebar__item}>
-      <a className={classes.sidebar__link} href="#">
+    <div className={classes.item}>
+      <a className={classes.link} href="#">
         <img
-          className={classes.sidebar__img}
+          className={classes.img}
           src={props.image} 
           alt={props.alt}
         />

@@ -1,4 +1,4 @@
-import GlobalSvgSelector from '../../GlobalSvg'
+import Note from '../../Svg/Note'
 
 const Title = ({
   wrapperClassName,
@@ -11,7 +11,7 @@ const Title = ({
   return (
     <div className={wrapperClassName}>
       <div className={iconWrapperClassName}>
-        <GlobalSvgSelector id="Note" iconClassName={iconClassName} />
+        <Note iconClassName={iconClassName} />
       </div>
       <div className={titleClassName}>
         <a className={linkClassName} href="http://">

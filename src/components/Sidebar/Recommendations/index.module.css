@@ -1,4 +1,4 @@
-.sidebar__block {
+.block {
     height: 100%;
     padding: 240px 0 0 0;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: flex-start;
 }
 
-.sidebar__list {
+.list {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,13 +1,13 @@
 import classes from './index.module.css'
 import cn from 'classnames'
-import GlobalSvgSelector from '../GlobalSvg'
+import Glass from '../Svg/Glass'
 
 const Search = () => {
   return (
     <div className={cn(classes.centerblock__search, classes.search)}>
-      <GlobalSvgSelector id="Search" iconClassName={classes['search__svg']} />
+      <Glass iconClassName={classes.svg} />
       <input
-        className={classes.search__text}
+        className={classes.text}
         type="search"
         placeholder="Поиск"
         name="search"

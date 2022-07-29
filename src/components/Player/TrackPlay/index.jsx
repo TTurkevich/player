@@ -1,6 +1,6 @@
 import classes from './index.module.css'
-import cn  from 'classnames'
-import GlobalSvgSelector from '../../GlobalSvg'
+import cn from 'classnames'
+import Note from '../../Svg/Note'
 import Author from '../../TrackItem/Author'
 import Album from '../../TrackItem/Album'
 import LikeDislike from '../LikeDislike'
@@ -8,21 +8,18 @@ import LikeDislike from '../LikeDislike'
 const TrackPlay = () => {
   return (
     <div className={cn(classes['player__track-play'], classes['track-play'])}>
-      <div className={classes['track-play__contain']}>
-        <div className={classes['track-play__image']}>
-          <GlobalSvgSelector
-            id="Note"
-            iconClassName={classes['track-play__svg']}
-          />
+      <div className={classes.contain}>
+        <div className={classes.image}>
+          <Note iconClassName={classes.svg} />
         </div>
         <Author
-          wrapperClassName={classes['track-play__author']}
-          linkClassName={classes['track-play__author-link']}
+          wrapperClassName={classes.author}
+          linkClassName={classes['author-link']}
           title="Ты та..."
         />
         <Album
-          wrapperClassName={classes['track-play__album']}
-          linkClassName={classes['track-play__album-link']}
+          wrapperClassName={classes.album}
+          linkClassName={classes['album-link']}
           title="Баста"
         />
       </div>

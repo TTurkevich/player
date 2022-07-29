@@ -5,28 +5,41 @@
   margin-left: 26%;
 }
 
-.track-play__dislike {
+.dislike {
   padding: 5px;
-}
-
-.track-play__dislike {
   margin-left: 28.5px;
 }
 
-.track-play__dislike-svg {
+.dislike-svg {
   width: 14.34px;
   height: 13px;
   fill: transparent;
   stroke: #696969;
 }
 
-.track-play__like {
+.like {
   padding: 5px;
 }
 
-.track-play__like-svg {
+.like-svg {
   width: 14px;
   height: 12px;
   fill: transparent;
   stroke: #696969;
+}
+
+._btn {
+  cursor: pointer;
+}
+
+._btn-icon:hover svg{
+  fill: transparent;
+  stroke: #ACACAC;
+  cursor: pointer;
+}
+
+._btn-icon:active svg{
+  fill: #696969;
+  stroke: #FFFFFF;
+  cursor: pointer;
 }

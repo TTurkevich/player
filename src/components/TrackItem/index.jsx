@@ -10,27 +10,27 @@ const TrackItem = (props) => {
     <div className={cn(classes.playlist__track, classes.track)}>
       <Title
         wrapperClassName={classes.track__title}
-        iconWrapperClassName={classes['track__title-image']}
-        iconClassName={classes['track__title-svg']}
-        titleClassName={classes['track__title-text']}
-        linkClassName={classes['track__title-link']}
+        iconWrapperClassName={classes['title-image']}
+        iconClassName={classes['title-svg']}
+        titleClassName={classes['title-text']}
+        linkClassName={classes['title-link']}
         title={props.title}
       />
       <Author
         wrapperClassName={classes.track__author}
-        linkClassName={classes['track__author-link']}
+        linkClassName={classes['author-link']}
         title={props.author}
       />
       <Album
         wrapperClassName={classes.track__album}
-        linkClassName={classes['track__album-link']}
+        linkClassName={classes['album-link']}
         title={props.album}
       />
       <Time
-        wrapperClassName={classes.track__time}
-        timeClassName={classes['track__time-text']}
+        wrapperClassName={cn(classes['track__time'], classes['_btn-icon'], classes['_btn'])}
+        timeClassName={classes['time-text']}
         time={props.time}
-        className={classes['track__time-svg']}
+        className={classes['time-svg']}
       />
     </div>
   )
