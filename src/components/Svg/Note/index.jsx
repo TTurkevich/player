@@ -1,7 +1,7 @@
-const Note = ({ iconClassName }) => {
+const Note = ({className}) => {
   return (
     <svg
-      className={iconClassName}
+      className={className}
       width="20"
       height="19"
       viewBox="0 0 20 19"

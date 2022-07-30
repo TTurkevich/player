@@ -27,7 +27,7 @@
   margin-right: 10px;
 }
 
-._btn-text:hover {
+._btnText:hover {
   border-color: #d9b6ff;
   color: #d9b6ff;
   cursor: pointer;
@@ -39,15 +39,8 @@
   cursor: pointer;
 }
 
-._btn-text:active {
+._btnText:active {
   border-color: #ad61ff;
   color: #ad61ff;
   cursor: pointer;
-}
-
-.button-author {
-}
-.button-year {
-}
-.button-genre {
 }

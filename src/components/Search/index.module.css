@@ -1,4 +1,4 @@
-.centerblock__search {
+.search {
   width: 100%;
   border-bottom: 1px solid #4e4e4e;
   margin-bottom: 51px;
@@ -6,8 +6,6 @@
   flex-direction: row;
   align-items: center;
 }
-
-.search {}
 
 .svg {
   width: 17px;

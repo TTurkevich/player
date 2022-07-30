@@ -1,25 +1,24 @@
 import classes from './index.module.css'
-import cn from 'classnames'
 import Note from '../../Svg/Note'
-import Author from '../../TrackItem/Author'
-import Album from '../../TrackItem/Album'
+import Author from '../../Track/Author'
+import Album from '../../Track/Album'
 import LikeDislike from '../LikeDislike'
 
 const TrackPlay = () => {
   return (
-    <div className={cn(classes['player__track-play'], classes['track-play'])}>
+    <div className={classes.trackPlay}>
       <div className={classes.contain}>
         <div className={classes.image}>
-          <Note iconClassName={classes.svg} />
+          <Note className={classes.svg} />
         </div>
         <Author
           wrapperClassName={classes.author}
-          linkClassName={classes['author-link']}
+          linkClassName={classes.authorLink}
           title="Ты та..."
         />
         <Album
           wrapperClassName={classes.album}
-          linkClassName={classes['album-link']}
+          linkClassName={classes.albumLink}
           title="Баста"
         />
       </div>

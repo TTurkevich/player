@@ -1,7 +1,7 @@
-const Glass = ({ iconClassName }) => {
+const IconSearch = ({className}) => {
   return (
     <svg
-      className={iconClassName}
+      className={className}
       width="17"
       height="18"
       viewBox="0 0 17 18"
@@ -24,4 +24,4 @@ const Glass = ({ iconClassName }) => {
   )
 }
 
-export default Glass
+export default IconSearch

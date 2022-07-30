@@ -1,11 +1,9 @@
-.bar__volume-block {
+.volumeBlock {
   width: auto;
   display: flex;
   align-items: center;
   padding: 0 92px 0 0;
 }
-
-.volume {}
 
 .content {
   display: flex;

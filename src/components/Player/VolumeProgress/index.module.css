@@ -1,4 +1,4 @@
-.volume__progress {
+.progress {
   width: 109px;
 }
 
@@ -6,6 +6,6 @@
   width: 109px;
 }
 
-._btn {
+.btn {
   cursor: pointer;
 }

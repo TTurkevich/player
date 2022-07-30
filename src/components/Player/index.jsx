@@ -5,9 +5,9 @@ import Volume from './Volume'
 const Player = () => {
   return (
     <div className={classes.bar}>
-      <div className={classes.bar__content}>
-        <div className={classes['bar__player-progress']}></div>
-        <div className={classes['bar__player-block']}>
+      <div className={classes.content}>
+        <div className={classes.playerProgress}></div>
+        <div className={classes.playerBlock}>
           <Controls />
           <Volume />
         </div>

@@ -5,12 +5,12 @@ import Dislike from '../../Svg/Dislike'
 
 const LikeDislike = () => {
   return (
-    <div className={classes['track-play__like-dis']}>
-      <div className={cn(classes.like, classes['_btn-icon'], classes['_btn'])}>
-        <Like iconClassName={classes['like-svg']} />
+    <div className={classes.likeDis}>
+      <div className={cn(classes.like, classes.btnIcon, classes.btn)}>
+        <Like className={classes.likeSvg} />
       </div>
-      <div className={cn(classes.dislike, classes['_btn-icon'], classes['_btn'])}>
-        <Dislike iconClassName={classes['dislike-svg']} />
+      <div className={cn(classes.dislike, classes.btnIcon, classes.btn)}>
+        <Dislike className={classes.dislikeSvg} />
       </div>
     </div>
   )

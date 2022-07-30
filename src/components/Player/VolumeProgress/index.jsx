@@ -3,9 +3,9 @@ import cn  from 'classnames'
 
 const VolumeProgress = () => {
   return (
-    <div className={cn(classes['volume__progress'], classes['_btn'])}>
+    <div className={cn(classes.progress, classes.btn)}>
       <input
-        className={cn(classes['line'], classes['_btn'])}
+        className={cn(classes.line, classes.btn)}
         type="range"
         name="range"
       ></input>

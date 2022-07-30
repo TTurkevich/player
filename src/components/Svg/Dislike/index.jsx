@@ -1,7 +1,7 @@
-const Dislike = ({ iconClassName }) => {
+const Dislike = ({className}) => {
   return (
     <svg
-      className={iconClassName}
+      className={className}
       width="16"
       height="15"
       viewBox="0 0 16 15"

@@ -1,7 +1,7 @@
-const Repeat = ({ iconClassName }) => {
+const Repeat = ({className}) => {
   return (
     <svg
-      className={iconClassName}
+      className={className}
       width="20"
       height="18"
       viewBox="0 0 20 18"

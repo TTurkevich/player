@@ -1,4 +1,4 @@
-.track-play__like-dis {
+.likeDis {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,7 +10,7 @@
   margin-left: 28.5px;
 }
 
-.dislike-svg {
+.dislikeSvg {
   width: 14.34px;
   height: 13px;
   fill: transparent;
@@ -21,24 +21,24 @@
   padding: 5px;
 }
 
-.like-svg {
+.likeSvg {
   width: 14px;
   height: 12px;
   fill: transparent;
   stroke: #696969;
 }
 
-._btn {
+.btn {
   cursor: pointer;
 }
 
-._btn-icon:hover svg{
+.btnIcon:hover svg{
   fill: transparent;
   stroke: #ACACAC;
   cursor: pointer;
 }
 
-._btn-icon:active svg{
+.btnIcon:active svg{
   fill: #696969;
   stroke: #FFFFFF;
   cursor: pointer;

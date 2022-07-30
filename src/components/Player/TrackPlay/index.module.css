@@ -1,7 +1,4 @@
-.track-play {
-}
-
-.player__track-play {
+.trackPlay {
   display: flex;
   flex-direction: row;
 }
@@ -37,7 +34,7 @@
   min-width: 49px;
 }
 
-.album-link {
+.albumLink {
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -50,7 +47,7 @@
   min-width: 49px;
 }
 
-.author-link {
+.authorLink {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

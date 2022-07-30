@@ -1,7 +1,7 @@
-const Watch = ({ iconClassName }) => {
+const Watch = ({className}) => {
   return (
     <svg
-          className={iconClassName}
+          className={className}
           width="12"
           height="12"
           viewBox="0 0 12 12"

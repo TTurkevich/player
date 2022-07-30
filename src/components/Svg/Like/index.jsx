@@ -1,7 +1,7 @@
-const Like = ({ iconClassName }) => {
+const Like = ({className}) => {
   return (
     <svg
-      className={iconClassName}
+      className={className}
       width="16"
       height="14"
       viewBox="0 0 16 14"

@@ -1,7 +1,7 @@
-const Play = ({ iconClassName }) => {
+const Play = ({className}) => {
   return (
     <svg
-      className={iconClassName}
+      className={className}
       width="15"
       height="20"
       viewBox="0 0 15 20"

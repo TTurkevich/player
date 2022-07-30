@@ -1,17 +1,14 @@
 import Search from '../Search'
 import Filter from '../Filter'
 import TrackTable from './TrackTable'
-import TitleTracks from '../TitleTracks'
+import Heading from '../Heading'
 import classes from './index.module.css'
-import cn from 'classnames'
-
-
 
 const MainContent = () => {
   return (
-    <div className={cn(classes.main__centerblock, classes.centerblock)}>
+    <div className={classes.centerBlock}>
       <Search />
-      <TitleTracks />
+      <Heading />
       <Filter />
       <TrackTable />
     </div>

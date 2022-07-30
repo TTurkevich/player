@@ -1,5 +1,4 @@
-.playlist {}
-.content__playlist {
+.playlist {
   display: flex;
   flex-direction: column;
   overflow-y: auto;

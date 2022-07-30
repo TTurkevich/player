@@ -1,8 +1,8 @@
 import classes from './App.module.css'
-import Nav from './components/Navigation'
-import MainContent from './components/MainContent'
-import Sidebar from './components/Sidebar'
-import Player from './components/Player'
+import Nav from '../components/Navigation'
+import MainContent from '../components/MainContent'
+import Sidebar from '../components/Sidebar'
+import Player from '../components/Player'
 
 function App() {
   return (

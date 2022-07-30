@@ -3,7 +3,7 @@ import Like from '../../Svg/Like'
 const Time = ({ wrapperClassName, className, timeClassName, time }) => {
   return (
     <div className={wrapperClassName}>
-      <Like iconClassName={className} />
+      <Like className={className} />
       <span className={timeClassName}>{time}</span>
     </div>
   )

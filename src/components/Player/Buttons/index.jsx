@@ -8,47 +8,47 @@ import Shuffle from '../../Svg/Shuffle'
 const icons = [
   {
     key: 1,
-    name: Prev,
-    wrapperClassName: ['player__btn-prev', '_btn', '_btn-icon'],
-    iconClassName: 'player__btn-prev-svg',
+    Component: Prev,
+    wrapperClassName: ['prev', 'btn', 'btnIcon'],
+    iconClassName: 'prevSvg',
   },
   {
     key: 2,
-    name: Play,
-    wrapperClassName: ['player__btn-play', '_btn', '_btn-icon'],
-    iconClassName: 'player__btn-play-svg',
+    Component: Play,
+    wrapperClassName: ['play', 'btn', 'btnIcon'],
+    iconClassName: 'playSvg',
   },
   {
     key: 3,
-    name: Next,
-    wrapperClassName: ['player__btn-next', '_btn', '_btn-icon'],
-    iconClassName: 'player__btn-next-svg',
+    Component: Next,
+    wrapperClassName: ['next', 'btn', 'btnIcon'],
+    iconClassName: 'nextSvg',
   },
   {
     key: 4,
-    name: Repeat,
-    wrapperClassName: ['player__btn-repeat', '_btn', '_btn-icon'],
-    iconClassName: 'player__btn-repeat-svg',
+    Component: Repeat,
+    wrapperClassName: ['repeat', 'btn', 'btnIcon'],
+    iconClassName: 'repeatSvg',
   },
   {
     key: 5,
-    name: Shuffle,
-    wrapperClassName: ['player__btn-shuffle', '_btn', '_btn-icon'],
-    iconClassName: 'player__btn-shuffle-svg',
+    Component: Shuffle,
+    wrapperClassName: ['shuffle', 'btn', 'btnIcon'],
+    iconClassName: 'shuffleSvg',
   },
 ]
 
 const Buttons = () => {
   return (
-    <div className={classes.player__controls}>
-      {icons.map((icon) => (
+    <div className={classes.controls}>
+      {icons.map((Icon) => (
         <div
-          key={icon.key}
-          className={icon.wrapperClassName
+          key={Icon.key}
+          className={Icon.wrapperClassName
             .map((item) => `${classes[item]}`)
             .join(' ')}
         >
-          <icon.name iconClassName={classes[`${icon.iconClassName}`]} />
+          <Icon.Component className={classes[`${Icon.iconClassName}`]} />
         </div>
       ))}
     </div>
