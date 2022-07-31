@@ -48,7 +48,7 @@ const Buttons = () => {
             .map((item) => `${classes[item]}`)
             .join(' ')}
         >
-          <Icon.Component className={classes[`${Icon.iconClassName}`]} />
+          <Icon.Component className={classes[Icon.iconClassName]} />
         </div>
       ))}
     </div>

@@ -9,16 +9,7 @@ const Track = (props) => {
   return (
     <div className={classes.item}>
       <div className={classes.track}>
-        <Title
-          wrapperClassName={classes.title}
-          iconWrapperClassName={classes.titleImage}
-          iconClassName={classes.titleSvg}
-          titleClassName={classes.titleText}
-          linkClassName={classes.titleLink}
-          title={props.title}
-          spanClassName={classes.titleSpan}
-          clarification={props.clarification}
-        />
+        <Title title={props.title} clarification={props.clarification} />
         <Author
           wrapperClassName={classes.author}
           linkClassName={classes.authorLink}

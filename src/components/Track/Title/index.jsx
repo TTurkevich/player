@@ -1,24 +1,16 @@
 import Note from '../../Svg/Note'
+import classes from './index.module.css'
 
-const Title = ({
-  wrapperClassName,
-  iconWrapperClassName,
-  iconClassName,
-  titleClassName,
-  linkClassName,
-  title,
-  spanClassName,
-  clarification,
-}) => {
+const Title = ({ title, clarification }) => {
   return (
-    <div className={wrapperClassName}>
-      <div className={iconWrapperClassName}>
-        <Note className={iconClassName} />
+    <div className={classes.title}>
+      <div className={classes.titleImage}>
+        <Note className={classes.titleSvg} />
       </div>
-      <div className={titleClassName}>
-        <a className={linkClassName} href="http://">
+      <div>
+        <a className={classes.titleLink} href="http://">
           {title}
-          <span className={spanClassName}>{clarification}</span>
+          <span className={classes.titleSpan}>{clarification}</span>
         </a>
       </div>
     </div>
