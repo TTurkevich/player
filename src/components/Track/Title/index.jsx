@@ -10,7 +10,7 @@ const Title = ({ title, clarification }) => {
       <div>
         <a className={classes.titleLink} href="http://">
           {title}
-          <span className={classes.titleSpan}>{clarification}</span>
+          <span className={classes.сlarification}>{clarification}</span>
         </a>
       </div>
     </div>
