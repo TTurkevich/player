@@ -1,7 +1,7 @@
 import classes from './index.module.css'
 import Selections from '../Selections'
 import { useState, useEffect } from 'react'
-import selectionsData from '../../utils/selectionsData'
+import selectionsData from '../../server/selectionsData'
 import SkeletonRecommendations from '../../Skeleton/SkeletonRecommendations'
 
 const Recommendations = () => {
