@@ -1,9 +1,10 @@
 import classes from './index.module.css'
+import cn from 'classnames'
 
-const Menu = () => {
+const Menu = ({active, setActive}) => {
   return (
-    <div className={classes.menu}>
-      <ul className={classes.list}>
+    <div className={cn(active ? classes.menuActive : classes.menu)} onClick={() => setActive(false)}>
+      <ul className={classes.list} onClick={event => event.stopPropagation()}>
         <li className={classes.item}>
           <a href="http://" className={classes.link}>
             Главное

@@ -1,14 +1,29 @@
 import classes from './index.module.css'
 import Selections from '../Selections'
+import { useState, useEffect } from 'react'
+import selectionsData from '../../utils/selectionsData'
+import SkeletonRecommendations from '../../Skeleton/SkeletonRecommendations'
 
 const Recommendations = () => {
+  const [recommendations, setRecommendations] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    const timing = setTimeout(() => {
+      setRecommendations(selectionsData)
+      setLoading(false)
+    }, 5000)
+    return () => clearTimeout(timing)
+  }, [])
+
   return (
     <div className={classes.block}>
-      <div className={classes.list}>
-        <Selections image='img/playlist01.png' alt="day's playlist" />
-        <Selections image='img/playlist02.png' alt="dance" />
-        <Selections image='img/playlist03.png' alt="energie" />
-      </div>
+      {loading && <SkeletonRecommendations />}
+      {!loading &&
+        recommendations.map((selection, index) => {
+          return <Selections key={index} selection={selection} />
+        })}
     </div>
   )
 }
