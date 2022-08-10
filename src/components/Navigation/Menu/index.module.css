@@ -1,10 +1,17 @@
 .menu {
   display: block;
   visibility: visible;
+  display: none;
+  transition: all 0.2s;
+}
+
+.menuActive {
+  display: block;
 }
 
 .list {
   padding: 18px 0 10px 0;
+  transition: all 0.2s;
 }
 
 .item {

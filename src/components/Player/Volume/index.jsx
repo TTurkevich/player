@@ -1,6 +1,8 @@
 import classes from './index.module.css'
-import VolumeSpeaker from '../../Svg/VolumeSpeaker'
+
 import VolumeProgress from '../VolumeProgress'
+import VolumeSpeaker from '../../Svg/VolumeSpeaker'
+
 
 const Volume = () => {
   return (

@@ -1,0 +1,92 @@
+.item {
+  width: 100%;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.track {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.titleImage {
+  width: 51px;
+  height: 51px;
+  margin-right: 14px;
+  background: #313131;
+}
+
+.titleText {
+  width: 356px;
+  height: 19px;
+  background: #313131;
+}
+
+.album {
+  width: 305px;
+  height: 19px;
+  background: #313131;
+}
+
+.author {
+  width: 271px;
+  height: 19px;
+  background: #313131;
+  margin-left: 35px;
+  margin-right: 50px;
+}
+
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  overflow: hidden;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(210, 2%, 25%);
+  }
+
+  100% {
+    background-color: hsl(180, 1%, 14%);
+  }
+}
+
+.selections {
+  width: 250px;
+  height: 150px;
+  background-color: #313131;
+  margin-bottom: 30px;
+}
+
+.contain {
+  width: auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'image author' 'image album';
+  align-items: center;
+}
+
+.trackPlayImage {
+  width: 51px;
+  height: 51px;
+  background-color: #313131;
+  margin-right: 12px;
+}
+
+.trackPlaySing {
+  width: 59px;
+  height: 15px;
+  background-color: #313131;
+  margin-bottom: 7px;
+}

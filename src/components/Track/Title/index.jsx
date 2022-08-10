@@ -1,5 +1,6 @@
-import Note from '../../Svg/Note'
 import classes from './index.module.css'
+
+import Note from '../../Svg/Note'
 
 const Title = ({ title, clarification }) => {
   return (
