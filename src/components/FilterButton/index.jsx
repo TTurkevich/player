@@ -1,24 +1,22 @@
 import classes from './index.module.css'
 import cn from 'classnames'
 
-const FilterButton = (props) => {
-  const clickHandler = (keyID) => {
-    props.onChange(keyID)
-  }
+const FilterButton = ({ onChange, activeBtn, dataId, text }) => {
+  const clickHandler = (keyID) => onChange(keyID)
 
   return (
     <div
-      data-id={props.dataId}
+      data-id={dataId}
       className={
-        props.activeBtn === props.dataId
+        activeBtn === dataId
           ? cn(classes.button, classes.activeClass)
           : classes.button
       }
       onClick={() => {
-        clickHandler(props.dataId)
+        clickHandler(dataId)
       }}
     >
-      {props.text}
+      {text}
     </div>
   )
 }

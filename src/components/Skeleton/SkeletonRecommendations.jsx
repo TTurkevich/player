@@ -1,5 +1,6 @@
-import classes from './index.module.css'
 import cn from 'classnames'
+
+import classes from './index.module.css'
 
 const SkeletonRecommendations = () => {
   return (

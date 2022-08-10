@@ -1,4 +1,5 @@
 import classes from './index.module.css'
+
 import Controls from './Controls'
 import Volume from './Volume'
 

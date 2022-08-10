@@ -1,7 +1,10 @@
-import classes from './index.module.css'
 import cn from 'classnames'
-import Like from '../../Svg/Like'
+
+import classes from './index.module.css'
+
 import Dislike from '../../Svg/Dislike'
+import Like from '../../Svg/Like'
+
 
 const LikeDislike = () => {
   return (

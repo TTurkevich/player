@@ -1,4 +1,5 @@
 import classes from './index.module.css'
+
 import IconSearch from '../Svg/IconSearch'
 
 const Search = () => {

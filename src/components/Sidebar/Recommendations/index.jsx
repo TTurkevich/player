@@ -1,8 +1,10 @@
-import classes from './index.module.css'
-import Selections from '../Selections'
 import { useState, useEffect } from 'react'
-import selectionsData from '../../server/selectionsData'
+
+import classes from './index.module.css'
+
+import Selections from '../Selections'
 import SkeletonRecommendations from '../../Skeleton/SkeletonRecommendations'
+import selectionsData from '../../server/selectionsData'
 
 const Recommendations = () => {
   const [recommendations, setRecommendations] = useState([])

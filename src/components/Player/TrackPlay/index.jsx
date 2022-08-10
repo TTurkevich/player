@@ -1,7 +1,9 @@
 import classes from './index.module.css'
-import Note from '../../Svg/Note'
-import Author from '../../Track/Author'
+
 import Album from '../../Track/Album'
+import Author from '../../Track/Author'
+import Note from '../../Svg/Note'
+
 
 const TrackPlay = ({ track }) => {
   return (

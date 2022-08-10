@@ -1,10 +1,13 @@
-import classes from './index.module.css'
-import Buttons from '../Buttons'
-import TrackPlay from '../TrackPlay'
 import { useState, useEffect } from 'react'
-import trackPlayData from '../../server/trackPlayData'
+
+import classes from './index.module.css'
+
 import LikeDislike from '../LikeDislike'
 import SkeletonTrackPlay from '../../Skeleton/SkeletonTrackPlay'
+import Buttons from '../Buttons'
+import TrackPlay from '../TrackPlay'
+import trackPlayData from '../../server/trackPlayData'
+
 
 const Controls = () => {
   const [trackPlay, setTrackPlay] = useState([])

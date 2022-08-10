@@ -1,6 +1,8 @@
+import { useCallback, useState } from 'react'
+
 import classes from './index.module.css'
+
 import FilterButton from '../FilterButton'
-import { useState } from 'react'
 import Modal from '../Modal'
 import filterButtonData from '../server/filterButtonData'
 
@@ -10,9 +12,9 @@ const Filter = () => {
   const [filter, setFilter] = useState([])
 
   const FilterData = (value) =>
-  filterButtonData.find((button) => button.type === `${value}`).filterItems
+    filterButtonData.find((button) => button.type === `${value}`).filterItems
 
-  const handleClick = (value) => {
+  const handleClick = useCallback((value) => {
     if (value !== active) {
       setActive(value)
       setModal(true)
@@ -21,7 +23,7 @@ const Filter = () => {
       setActive('')
       setModal(false)
     }
-  }
+  })
 
   return (
     <div className={classes.filter}>

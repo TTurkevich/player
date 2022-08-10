@@ -1,4 +1,5 @@
 import classes from './index.module.css'
+
 import Personal from './Personal'
 import Recommendations from './Recommendations'
 
