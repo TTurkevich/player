@@ -4,7 +4,7 @@ import classes from './index.module.css'
 
 import FilterButton from '../FilterButton'
 import Modal from '../Modal'
-import filterButtonData from '../server/filterButtonData'
+import filterButtonData from '../../server/filterButtonData'
 
 const Filter = () => {
   const [active, setActive] = useState('')

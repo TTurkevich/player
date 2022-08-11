@@ -6,7 +6,7 @@ import LikeDislike from '../LikeDislike'
 import SkeletonTrackPlay from '../../Skeleton/SkeletonTrackPlay'
 import Buttons from '../Buttons'
 import TrackPlay from '../TrackPlay'
-import trackPlayData from '../../server/trackPlayData'
+import trackPlayData from '../../../server/trackPlayData'
 
 
 const Controls = () => {

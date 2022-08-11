@@ -5,7 +5,7 @@ import IconSearch from '../Svg/IconSearch'
 const Search = () => {
   return (
     <div className={classes.search}>
-      <IconSearch className={classes.svg} />
+      <IconSearch className={classes.icon} />
       <input
         className={classes.text}
         type="search"

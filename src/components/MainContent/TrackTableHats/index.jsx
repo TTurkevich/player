@@ -8,7 +8,7 @@ const TrackTableHats = () => {
       <div className={classes.col}>Иcполнители</div>
       <div className={classes.col}>Альбом</div>
       <div className={classes.col}>
-        <Watch className={classes.svg} />
+        <Watch className={classes.icon} />
       </div>
     </div>
   )

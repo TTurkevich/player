@@ -9,7 +9,7 @@ const Volume = () => {
     <div className={classes.volumeBlock}>
       <div className={classes.content}>
         <div className={classes.image}>
-          <VolumeSpeaker className={classes.svg} />
+          <VolumeSpeaker className={classes.icon} />
         </div>
         <VolumeProgress />
       </div>

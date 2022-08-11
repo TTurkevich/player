@@ -12,7 +12,7 @@ const TrackPlay = ({ track }) => {
         return (
           <div key={item.id} className={classes.contain}>
             <div className={classes.image}>
-              <Note className={classes.svg} />
+              <Note className={classes.icon} />
             </div>
             <Author
               wrapperClassName={classes.author}
