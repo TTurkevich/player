@@ -1,5 +1,5 @@
 import classes from './index.module.css'
-import Watch from '../../Svg/Watch'
+import Watch from '../../Icons/Watch'
 
 const TrackTableHats = () => {
   return (

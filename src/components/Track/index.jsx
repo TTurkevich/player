@@ -29,7 +29,7 @@ const Track = ({ track }) => {
                 wrapperClassName={cn(classes.btnIcon, classes.btn)}
                 timeClassName={classes.timeText}
                 time={item.time}
-                className={classes.timeSvg}
+                className={classes.timeIcon}
               />
             </div>
           </div>

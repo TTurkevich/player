@@ -1,40 +1,40 @@
 import classes from './index.module.css'
-import Prev from '../../Svg/Prev'
-import Play from '../../Svg/Play'
-import Next from '../../Svg/Next'
-import Repeat from '../../Svg/Repeat'
-import Shuffle from '../../Svg/Shuffle'
+import Prev from '../../Icons/Prev'
+import Play from '../../Icons/Play'
+import Next from '../../Icons/Next'
+import Repeat from '../../Icons/Repeat'
+import Shuffle from '../../Icons/Shuffle'
 
 const icons = [
   {
     key: 1,
     Component: Prev,
     wrapperClassName: ['prev', 'btn', 'btnIcon'],
-    iconClassName: 'prevSvg',
+    iconClassName: 'prevIcon',
   },
   {
     key: 2,
     Component: Play,
     wrapperClassName: ['play', 'btn', 'btnIcon'],
-    iconClassName: 'playSvg',
+    iconClassName: 'playIcon',
   },
   {
     key: 3,
     Component: Next,
     wrapperClassName: ['next', 'btn', 'btnIcon'],
-    iconClassName: 'nextSvg',
+    iconClassName: 'nextIcon',
   },
   {
     key: 4,
     Component: Repeat,
     wrapperClassName: ['repeat', 'btn', 'btnIcon'],
-    iconClassName: 'repeatSvg',
+    iconClassName: 'repeatIcon',
   },
   {
     key: 5,
     Component: Shuffle,
     wrapperClassName: ['shuffle', 'btn', 'btnIcon'],
-    iconClassName: 'shuffleSvg',
+    iconClassName: 'shuffleIcon',
   },
 ]
 

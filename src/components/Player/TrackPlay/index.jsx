@@ -2,7 +2,7 @@ import classes from './index.module.css'
 
 import Album from '../../Track/Album'
 import Author from '../../Track/Author'
-import Note from '../../Svg/Note'
+import Note from '../../Icons/Note'
 
 
 const TrackPlay = ({ track }) => {

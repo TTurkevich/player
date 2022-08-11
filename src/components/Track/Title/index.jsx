@@ -1,12 +1,12 @@
 import classes from './index.module.css'
 
-import Note from '../../Svg/Note'
+import Note from '../../Icons/Note'
 
 const Title = ({ title, clarification }) => {
   return (
     <div className={classes.title}>
       <div className={classes.titleImage}>
-        <Note className={classes.titleSvg} />
+        <Note className={classes.titleIcon} />
       </div>
       <div>
         <a className={classes.titleLink} href="http://">

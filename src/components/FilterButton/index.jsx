@@ -1,5 +1,5 @@
-import classes from './index.module.css'
 import cn from 'classnames'
+import classes from './index.module.css'
 
 const FilterButton = ({ onChange, activeBtn, dataId, text }) => {
   const clickHandler = (keyID) => onChange(keyID)

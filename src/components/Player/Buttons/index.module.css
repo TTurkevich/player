@@ -18,7 +18,7 @@
   margin-right: 23px;
 }
 
-.prevSvg {
+.prevIcon {
   width: 15px;
   height: 14px;
 }
@@ -27,7 +27,7 @@
   margin-right: 23px;
 }
 
-.playSvg {
+.playIcon {
   width: 22px;
   height: 20px;
   fill: #d9d9d9;
@@ -38,7 +38,7 @@
   fill: #a53939;
 }
 
-.nextSvg {
+.nextIcon {
   width: 15px;
   height: 14px;
   fill: inherit;
@@ -49,7 +49,7 @@
   margin-right: 24px;
 }
 
-.repeatSvg {
+.repeatIcon {
   width: 18px;
   height: 12px;
   fill: transparent;
@@ -61,7 +61,7 @@
   align-items: center;
 }
 
-.shuffleSvg {
+.shuffleIcon {
   width: 19px;
   height: 12px;
   fill: transparent;

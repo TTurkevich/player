@@ -1,6 +1,6 @@
 import classes from './index.module.css'
 
-import IconSearch from '../Svg/IconSearch'
+import IconSearch from '../Icons/IconSearch'
 
 const Search = () => {
   return (
