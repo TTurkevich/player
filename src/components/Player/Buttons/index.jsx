@@ -9,31 +9,31 @@ const icons = [
   {
     key: 1,
     Component: Prev,
-    wrapperClassName: ['prev', 'btn', 'btnIcon'],
+    wrapperClassName: [classes.prev, classes.btn, classes.btnIcon],
     iconClassName: 'prevIcon',
   },
   {
     key: 2,
     Component: Play,
-    wrapperClassName: ['play', 'btn', 'btnIcon'],
+    wrapperClassName: [classes.play, classes.btn, classes.btnIcon],
     iconClassName: 'playIcon',
   },
   {
     key: 3,
     Component: Next,
-    wrapperClassName: ['next', 'btn', 'btnIcon'],
+    wrapperClassName: [classes.next, classes.btn, classes.btnIcon],
     iconClassName: 'nextIcon',
   },
   {
     key: 4,
     Component: Repeat,
-    wrapperClassName: ['repeat', 'btn', 'btnIcon'],
+    wrapperClassName: [classes.repeat, classes.btn, classes.btnIcon],
     iconClassName: 'repeatIcon',
   },
   {
     key: 5,
     Component: Shuffle,
-    wrapperClassName: ['shuffle', 'btn', 'btnIcon'],
+    wrapperClassName: [classes.shuffle, classes.btn, classes.btnIcon],
     iconClassName: 'shuffleIcon',
   },
 ]
@@ -44,9 +44,7 @@ const Buttons = () => {
       {icons.map((Icon) => (
         <div
           key={Icon.key}
-          className={Icon.wrapperClassName
-            .map((item) => `${classes[item]}`)
-            .join(' ')}
+          className={Icon.wrapperClassName.map((item) => item).join(' ')}
         >
           <Icon.Component className={classes[Icon.iconClassName]} />
         </div>

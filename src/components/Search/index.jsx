@@ -1,10 +1,11 @@
 import classes from './index.module.css'
+import cn from 'classnames'
 
 import IconSearch from '../Icons/IconSearch'
 
-const Search = () => {
+const Search = ({searchBlock}) => {
   return (
-    <div className={classes.search}>
+    <div className={cn(searchBlock, classes.search)}>
       <IconSearch className={classes.icon} />
       <input
         className={classes.text}

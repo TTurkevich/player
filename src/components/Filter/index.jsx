@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import cn from 'classnames'
 
 import classes from './index.module.css'
 
@@ -7,7 +8,7 @@ import Modal from '../Modal'
 
 import filterButtonData from '../../server/filterButtonData'
 
-const Filter = () => {
+const Filter = ({filterBlock}) => {
   const [active, setActive] = useState('')
   const [isModal, setModal] = useState(false)
   const [filter, setFilter] = useState([])
@@ -27,7 +28,7 @@ const Filter = () => {
   })
 
   return (
-    <div className={classes.filter}>
+    <div className={cn(classes.filter, filterBlock)}>
       <div className={classes.title}>Искать по:</div>
       {filterButtonData.map((item) => (
         <FilterButton
