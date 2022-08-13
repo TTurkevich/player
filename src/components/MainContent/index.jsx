@@ -8,9 +8,9 @@ import TrackTable from './TrackTable'
 const MainContent = () => {
   return (
     <div className={classes.centerBlock}>
-      <Search searchBlock={classes.searchBlock} />
-      <Heading heading={classes.heading} />
-      <Filter filterBlock={classes.filterBlock} />
+      <Search className={classes.searchBlock} />
+      <Heading className={classes.heading} />
+      <Filter className={classes.filterBlock} />
       <TrackTable />
     </div>
   )

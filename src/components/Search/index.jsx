@@ -3,9 +3,9 @@ import cn from 'classnames'
 
 import IconSearch from '../Icons/IconSearch'
 
-const Search = ({searchBlock}) => {
+const Search = ({className}) => {
   return (
-    <div className={cn(searchBlock, classes.search)}>
+    <div className={cn(className, classes.search)}>
       <IconSearch className={classes.icon} />
       <input
         className={classes.text}

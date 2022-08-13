@@ -8,7 +8,7 @@ import Modal from '../Modal'
 
 import filterButtonData from '../../server/filterButtonData'
 
-const Filter = ({filterBlock}) => {
+const Filter = ({className}) => {
   const [active, setActive] = useState('')
   const [isModal, setModal] = useState(false)
   const [filter, setFilter] = useState([])
@@ -28,7 +28,7 @@ const Filter = ({filterBlock}) => {
   })
 
   return (
-    <div className={cn(classes.filter, filterBlock)}>
+    <div className={cn(classes.filter, className)}>
       <div className={classes.title}>Искать по:</div>
       {filterButtonData.map((item) => (
         <FilterButton
