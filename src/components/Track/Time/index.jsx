@@ -1,4 +1,4 @@
-import Like from '../../Svg/Like'
+import Like from '../../Icons/Like'
 
 const Time = ({ wrapperClassName, className, timeClassName, time }) => {
   return (

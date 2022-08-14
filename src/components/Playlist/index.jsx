@@ -4,7 +4,7 @@ import classes from './index.module.css'
 
 import SkeletonPlaylist from '../Skeleton/SkeletonPlaylist'
 import Track from '../Track'
-import trackData from '../server/trackData'
+import trackData from '../../server/trackData'
 
 
 const Playlist = () => {

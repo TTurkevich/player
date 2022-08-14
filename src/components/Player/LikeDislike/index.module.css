@@ -10,8 +10,8 @@
   margin-left: 28.5px;
 }
 
-.dislikeSvg {
-  width: 14.34px;
+.dislikeIcon {
+  width: 14px;
   height: 13px;
   fill: transparent;
   stroke: #696969;
@@ -21,7 +21,7 @@
   padding: 5px;
 }
 
-.likeSvg {
+.likeIcon {
   width: 14px;
   height: 12px;
   fill: transparent;

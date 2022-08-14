@@ -1,15 +1,16 @@
-import Search from '../Search'
-import Filter from '../Filter'
-import TrackTable from './TrackTable'
-import Heading from '../Heading'
 import classes from './index.module.css'
+
+import Heading from '../Heading'
+import Filter from '../Filter'
+import Search from '../Search'
+import TrackTable from './TrackTable'
 
 const MainContent = () => {
   return (
     <div className={classes.centerBlock}>
-      <Search />
-      <Heading />
-      <Filter />
+      <Search className={classes.searchBlock} />
+      <Heading className={classes.heading} />
+      <Filter className={classes.filterBlock} />
       <TrackTable />
     </div>
   )

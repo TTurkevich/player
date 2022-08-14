@@ -1,6 +1,8 @@
 import classes from './index.module.css'
-import TrackTableHats from '../TrackTableHats'
+
 import Playlist from '../../Playlist'
+import TrackTableHats from '../TrackTableHats'
+
 
 const TrackTable = () => {
   return (

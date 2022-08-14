@@ -1,5 +1,5 @@
 import classes from './index.module.css'
-import Watch from '../../Svg/Watch'
+import Watch from '../../Icons/Watch'
 
 const TrackTableHats = () => {
   return (
@@ -8,7 +8,7 @@ const TrackTableHats = () => {
       <div className={classes.col}>Иcполнители</div>
       <div className={classes.col}>Альбом</div>
       <div className={classes.col}>
-        <Watch className={classes.svg} />
+        <Watch className={classes.icon} />
       </div>
     </div>
   )

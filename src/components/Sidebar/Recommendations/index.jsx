@@ -4,7 +4,7 @@ import classes from './index.module.css'
 
 import Selections from '../Selections'
 import SkeletonRecommendations from '../../Skeleton/SkeletonRecommendations'
-import selectionsData from '../../server/selectionsData'
+import selectionsData from '../../../server/selectionsData'
 
 const Recommendations = () => {
   const [recommendations, setRecommendations] = useState([])

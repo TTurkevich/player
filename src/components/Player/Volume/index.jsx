@@ -1,7 +1,7 @@
 import classes from './index.module.css'
 
 import VolumeProgress from '../VolumeProgress'
-import VolumeSpeaker from '../../Svg/VolumeSpeaker'
+import VolumeSpeaker from '../../Icons/VolumeSpeaker'
 
 
 const Volume = () => {
@@ -9,7 +9,7 @@ const Volume = () => {
     <div className={classes.volumeBlock}>
       <div className={classes.content}>
         <div className={classes.image}>
-          <VolumeSpeaker className={classes.svg} />
+          <VolumeSpeaker className={classes.icon} />
         </div>
         <VolumeProgress />
       </div>

@@ -1,13 +1,12 @@
 .search {
   width: 100%;
   border-bottom: 1px solid #4e4e4e;
-  margin-bottom: 51px;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.svg {
+.icon {
   width: 17px;
   height: 17px;
   margin-right: 5px;

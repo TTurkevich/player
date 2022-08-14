@@ -1,11 +1,12 @@
 import classes from './index.module.css'
+import cn from 'classnames'
 
-import IconSearch from '../Svg/IconSearch'
+import IconSearch from '../Icons/IconSearch'
 
-const Search = () => {
+const Search = ({className}) => {
   return (
-    <div className={classes.search}>
-      <IconSearch className={classes.svg} />
+    <div className={cn(className, classes.search)}>
+      <IconSearch className={classes.icon} />
       <input
         className={classes.text}
         type="search"
