@@ -1,9 +1,10 @@
+import cn from 'classnames'
 import classes from './index.module.css'
 
-const Logo = () => {
+const Logo = ({ src, className }) => {
   return (
-    <div className={classes.logo}>
-      <img className={classes.image} src='/img/logo.png' alt="logo" />
+    <div className={cn(className, classes.logo)}>
+      <img className={classes.image} src={src} alt="logo" />
     </div>
   )
 }
