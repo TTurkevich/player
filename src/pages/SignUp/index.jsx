@@ -21,24 +21,24 @@ const SignUp = () => {
         <Logo className={classes.logo} src="/img/logoBlack.png" />
         <input
           className={classes.input}
-          placeholder={'Логин'}
+          placeholder='Логин'
           name="name"
-          id={'loginReg'}
-          type={'text'}
+          id='loginReg'
+          type='text'
         />
         <input
           className={classes.input}
-          placeholder={'Пароль'}
+          placeholder='Пароль'
           name="password"
-          id={'passwordFirst'}
-          type={'password'}
+          id='passwordFirst'
+          type='password'
         />
         <input
           className={classes.input}
-          placeholder={'Повторите пароль'}
+          placeholder='Повторите пароль'
           name="password"
-          id={'passwordSecond'}
-          type={'password'}
+          id='passwordSecond'
+          type='password'
         />
         <button className={cn(classes.btn, classes.signUp)}>
           Зарегистрироваться

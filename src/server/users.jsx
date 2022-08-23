@@ -2,14 +2,12 @@ const users = [
   {
     id: 1,
     login: 'user',
-    password: 'password',
-    password2: 'password',
+    password: 'pass',
   },
   {
     id: 2,
-    login: 'user',
-    password: 'password',
-    password2: 'password',
+    login: 'veo',
+    password: 'pass',
   },
 ]
 

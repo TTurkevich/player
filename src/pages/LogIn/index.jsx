@@ -18,7 +18,7 @@ const LogIn = () => {
     return <Navigate to="/" replace={true} />
   }
 
-  const fromPage = location.state?.from?.pathname || '/'
+  const fromPage = location.state?.from?.pathname ?? '/'
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -42,13 +42,13 @@ const LogIn = () => {
         <input
           className={
             invalid
-              ? cn(classes.input, classes.inputError)
+              ? cn(classes.input, classes.login, classes.inputError)
               : cn(classes.login, classes.input)
           }
-          placeholder={'Логин'}
+          placeholder='Логин'
           name="name"
-          id={'formlogin'}
-          type={'text'}
+          id='login'
+          type='text'
         />
         <input
           className={
@@ -56,8 +56,8 @@ const LogIn = () => {
           }
           placeholder={'Пароль'}
           name="password"
-          id={'formpasswor'}
-          type={'password'}
+          id='password'
+          type='password'
         />
         <button id="btnEnter" className={cn(classes.btn, classes.logIn)}>
           Войти

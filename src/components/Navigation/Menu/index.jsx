@@ -5,7 +5,7 @@ import useAuthContext from '../../../Auth/useAuthContext'
 import classes from './index.module.css'
 
 const Menu = ({ active, setActive }) => {
-  const { signout } = useAuthContext()
+  const { logout } = useAuthContext()
   const navigate = useNavigate()
 
   return (
@@ -40,7 +40,7 @@ const Menu = ({ active, setActive }) => {
               isActive ? classes.activeLink : classes.link
             }
             to="/logIn"
-            onClick={() => signout(() => navigate('/', { replace: true }))}
+            onClick={() => logout(() => navigate('/', { replace: true }))}
           >
             Выйти
           </NavLink>

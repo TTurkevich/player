@@ -7,11 +7,9 @@ export const AuthContext = createContext()
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(false)
 
-  const user = users.find((user) => user.login)
-
   const login = (name, password, success, failure) => {
-    if (user.login === name && user.password === password) {
-      console.log(user.login, name, user.password, password)
+    const user = users.find((user) => user.login === name)
+    if (user && password === user.password) {
       setAuth(true)
       success()
     } else {

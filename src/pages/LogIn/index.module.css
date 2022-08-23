@@ -27,7 +27,16 @@
   border-left: none;
   border-right: none;
   border-bottom: 1px solid #d0cece;
-  padding: 8px 1px;
+  padding: 8px 5px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #d0cece;
+}
+
+input::placeholder {
+  font-size: 18px;
+  line-height: 24px;
+  color: #d0cece;
 }
 
 .login {
@@ -65,8 +74,7 @@
 .logIn {
   background-color: #580ea2;
   border: none;
-  color: white;
-  margin-top: 60px;
+  margin-top: 34px;
   margin-bottom: 20px;
   font-style: normal;
   font-weight: 400;

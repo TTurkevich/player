@@ -26,7 +26,7 @@ const AppRoutes = () => {
                 <Main />
               </RequireAuth>
             }
-          ></Route>
+          />
           <Route
             path="/myTracks"
             element={
@@ -34,7 +34,7 @@ const AppRoutes = () => {
                 <MyTracks />
               </RequireAuth>
             }
-          ></Route>
+          />
           <Route
             path="/selections"
             element={
@@ -42,7 +42,7 @@ const AppRoutes = () => {
                 <Selections />
               </RequireAuth>
             }
-          ></Route>
+          />
         </Route>
       </Routes>
     </AuthProvider>
