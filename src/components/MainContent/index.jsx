@@ -7,12 +7,12 @@ import TrackTable from './TrackTable'
 
 const MainContent = () => {
   return (
-    <div className={classes.centerBlock}>
+    <>
       <Search className={classes.searchBlock} />
-      <Heading className={classes.heading} />
+      <Heading className={classes.heading} text="Треки" />
       <Filter className={classes.filterBlock} />
       <TrackTable />
-    </div>
+    </>
   )
 }
 

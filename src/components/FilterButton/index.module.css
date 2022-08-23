@@ -18,4 +18,10 @@
     color: #ad61ff;
     cursor: pointer;
   }
+
+  .button:hover {
+    border-color: #D9B6FF;
+    color: #D9B6FF;
+    cursor: pointer;
+  }
   

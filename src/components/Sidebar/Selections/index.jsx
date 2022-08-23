@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+
 import classes from './index.module.css'
 
 const Selections = ({ selection }) => {
@@ -6,9 +8,14 @@ const Selections = ({ selection }) => {
       {selection.items.map((item) => {
         return (
           <div key={item.id} className={classes.item}>
-            <a className={classes.link} href="#">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? classes.activeLink : classes.link
+              }
+              to="/selections"
+            >
               <img className={classes.img} src={item.image} alt={item.alt} />
-            </a>
+            </NavLink>
           </div>
         )
       })}

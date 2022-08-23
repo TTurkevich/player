@@ -6,13 +6,11 @@ import Burger from './Burger'
 import Logo from '../Logo'
 import Menu from './Menu'
 
-
-
 const Nav = () => {
   const [menuActive, setMenuActive] = useState(false)
   return (
     <nav className={classes.nav}>
-      <Logo />
+      <Logo className={classes.logo} src="/img/logo.png" />
       <Burger active={menuActive} setActive={setMenuActive} />
       <Menu active={menuActive} setActive={setMenuActive} />
     </nav>

@@ -1,26 +1,49 @@
 import cn from 'classnames'
+import { NavLink, useNavigate } from 'react-router-dom'
+import useAuthContext from '../../../Auth/useAuthContext'
 
 import classes from './index.module.css'
 
+const Menu = ({ active, setActive }) => {
+  const { logout } = useAuthContext()
+  const navigate = useNavigate()
 
-const Menu = ({active, setActive}) => {
   return (
-    <div className={cn(active ? classes.menuActive : classes.menu)} onClick={() => setActive(false)}>
-      <ul className={classes.list} onClick={event => event.stopPropagation()}>
+    <div
+      className={cn(active ? classes.menuActive : classes.menu)}
+      onClick={() => setActive(false)}
+    >
+      <ul className={classes.list}>
         <li className={classes.item}>
-          <a href="http://" className={classes.link}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? classes.activeLink : classes.link
+            }
+            to="/"
+          >
             Главное
-          </a>
+          </NavLink>
         </li>
         <li className={classes.item}>
-          <a href="http://" className={classes.link}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? classes.activeLink : classes.link
+            }
+            to="/myTracks"
+          >
             Мой плейлист
-          </a>
+          </NavLink>
         </li>
         <li className={classes.item}>
-          <a href="http://" className={classes.link}>
-            Войти
-          </a>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? classes.activeLink : classes.link
+            }
+            to="/logIn"
+            onClick={() => logout(() => navigate('/', { replace: true }))}
+          >
+            Выйти
+          </NavLink>
         </li>
       </ul>
     </div>
