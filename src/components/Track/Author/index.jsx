@@ -1,7 +1,7 @@
 const Author = ({ wrapperClassName, linkClassName, title }) => {
   return (
     <div className={wrapperClassName}>
-      <a className={linkClassName} href="http://">
+      <a className={linkClassName} href="#">
         {title}
       </a>
     </div>

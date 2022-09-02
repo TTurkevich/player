@@ -7,6 +7,7 @@ const trackData = [
         author: 'Nero',
         album: 'Welcome Reality',
         time: '4:44',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
       {
         id: '2',
@@ -14,6 +15,7 @@ const trackData = [
         author: 'Dynoro, Outwork, Mr. Gee',
         album: 'Elektro',
         time: '2:22',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
       {
         id: '3',
@@ -21,6 +23,7 @@ const trackData = [
         author: 'Ali Bakgor',
         album: 'I’m Fire',
         time: '2:22',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
 
       {
@@ -30,6 +33,7 @@ const trackData = [
         author: 'Стоункат, Psychopath',
         album: 'Non Stop',
         time: '4:12',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
       {
         id: '5',
@@ -38,6 +42,7 @@ const trackData = [
         author: 'Jaded, Will Clarke, AR/CO',
         album: 'Run Run',
         time: '2:54',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
       {
         id: '6',
@@ -46,6 +51,7 @@ const trackData = [
         author: 'Blue Foundation, Zeds Dead',
         album: 'Eyes on Fire',
         time: '5:20',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
       {
         id: '7',
@@ -54,6 +60,7 @@ const trackData = [
         author: 'HYBIT, Mr. Black, Offer Nissim, Hi Profile',
         album: 'Mucho Bien',
         time: '3:41',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
       {
         id: '8',
@@ -61,6 +68,7 @@ const trackData = [
         author: 'minthaze',
         album: 'Captivating',
         time: '1:48',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
       {
         id: '9',
@@ -68,6 +76,7 @@ const trackData = [
         author: 'Calvin Harris, Disciples',
         album: 'How Deep Is Your Love',
         time: '3:32',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
       {
         id: '10',
@@ -75,6 +84,7 @@ const trackData = [
         author: 'Tom Boxer',
         album: 'Soundz Made in Romania',
         time: '3:36',
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'  
       },
     ],
   },

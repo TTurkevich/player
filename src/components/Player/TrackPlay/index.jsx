@@ -4,8 +4,7 @@ import Album from '../../Track/Album'
 import Author from '../../Track/Author'
 import Note from '../../Icons/Note'
 
-
-const TrackPlay = ({ track }) => {
+const TrackPlay = ({ track, reference }) => {
   return (
     <>
       {track.items.map((item) => {
@@ -24,6 +23,7 @@ const TrackPlay = ({ track }) => {
               linkClassName={classes.albumLink}
               title={item.album}
             />
+            <audio ref={reference} src={item.audio}></audio>
           </div>
         )
       })}

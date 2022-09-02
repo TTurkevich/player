@@ -4,7 +4,8 @@ const trackPlayData = [
       {
         id: '1',
         author: 'Ты та...',
-        album: 'Баста',        
+        album: 'Баста',  
+        audio: './audio/Bobby_Marleni_-_Dropin.mp3'      
       },
     ],
   },

@@ -8,8 +8,7 @@ import Buttons from '../Buttons'
 import TrackPlay from '../TrackPlay'
 import trackPlayData from '../../../server/trackPlayData'
 
-
-const Controls = () => {
+const Controls = ({ playingBtn, reference, onChange }) => {
   const [trackPlay, setTrackPlay] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -24,12 +23,12 @@ const Controls = () => {
 
   return (
     <div className={classes.player}>
-      <Buttons />
+      <Buttons onChange={onChange} playingBtn={playingBtn} />
       <div className={classes.trackPlay}>
         {loading && <SkeletonTrackPlay />}
         {!loading &&
           trackPlay.map((track, index) => {
-            return <TrackPlay key={index} track={track} />
+            return <TrackPlay key={index} track={track} reference={reference} />
           })}
         <LikeDislike />
       </div>
