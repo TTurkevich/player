@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import classes from './index.module.css'
 
 import Prev from '../../Icons/Prev'
@@ -7,63 +8,65 @@ import Next from '../../Icons/Next'
 import Repeat from '../../Icons/Repeat'
 import Shuffle from '../../Icons/Shuffle'
 
-const icons = [
-  {
-    key: 1,
-    Component: Prev,
-    type: 'prev',
-    wrapperClassName: [classes.prev, classes.btn, classes.btnIcon],
-    iconClassName: 'prevIcon',
-  },
-  {
-    key: 2,
-    Component: Play,
-    type: 'play',
-    wrapperClassName: [classes.play, classes.btn, classes.btnIcon],
-    iconClassName: 'playIcon',
-  },
-  {
-    key: 3,
-    Component: Next,
-    type: 'next',
-    wrapperClassName: [classes.next, classes.btn, classes.btnIcon],
-    iconClassName: 'nextIcon',
-  },
-  {
-    key: 4,
-    Component: Repeat,
-    type: 'repeat',
-    wrapperClassName: [classes.repeat, classes.btn, classes.btnIcon],
-    iconClassName: 'repeatIcon',
-  },
-  {
-    key: 5,
-    Component: Shuffle,
-    type: 'shuffle',
-    wrapperClassName: [classes.shuffle, classes.btn, classes.btnIcon],
-    iconClassName: 'shuffleIcon',
-  },
-]
-
-const Buttons = ({ playingBtn, onChange }) => {
-  {
-    playingBtn
-      ? (icons[1].Component = Pause) && (icons[1].type = 'pause')
-      : (icons[1].Component = Play) && (icons[1].type = 'play')
-  }
-
+const Buttons = ({
+  isPlaying,
+  onPlayPauseClick,
+  onPrevClick,
+  onNextClick,
+  onRepeatTrack,
+  activeRepeat,
+  onShuffleTracks,
+}) => {
   return (
     <div className={classes.controls}>
-      {icons.map((Icon) => (
+      <div
+        className={cn(classes.prev, classes.btn, classes.btnIcon)}
+        onClick={onPrevClick}
+      >
+        <Prev className={classes.prevIcon} />
+      </div>
+      {isPlaying ? (
         <div
-          key={Icon.key}
-          data-id={Icon.type}
-          className={Icon.wrapperClassName.map((item) => item).join(' ')}
-          onClick={onChange}
+          className={cn(classes.play, classes.btn, classes.btnIcon)}
+          onClick={() => onPlayPauseClick(false)}
         >
-          <Icon.Component className={classes[Icon.iconClassName]} />
+          <Pause className={classes.playIcon} />
         </div>
-      ))}
+      ) : (
+        <div
+          className={cn(classes.play, classes.btn, classes.btnIcon)}
+          onClick={() => onPlayPauseClick(true)}
+        >
+          <Play className={classes.playIcon} />
+        </div>
+      )}
+      <div
+        className={cn(classes.next, classes.btn, classes.btnIcon)}
+        onClick={onNextClick}
+      >
+        <Next className={classes.prevIcon} />
+      </div>
+      <div
+        className={
+          activeRepeat
+            ? cn(
+                classes.activeRepeat,
+                classes.repeat,
+                classes.btn,
+                classes.btnIcon
+              )
+            : cn(classes.repeat, classes.btn, classes.btnIcon)
+        }
+        onClick={onRepeatTrack}
+      >
+        <Repeat className={classes.repeatIcon} />
+      </div>
+      <div
+        className={cn(classes.shuffle, classes.btn, classes.btnIcon)}
+        onClick={onShuffleTracks}
+      >
+        <Shuffle className={classes.shuffleIcon} />
+      </div>
     </div>
   )
 }

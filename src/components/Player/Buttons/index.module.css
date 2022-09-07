@@ -79,18 +79,25 @@
 
 .btnIcon:hover svg {
   fill: transparent;
-  stroke: #ACACAC;
+  stroke: #acacac;
   cursor: pointer;
 }
 
 .btnIcon:active svg {
   fill: transparent;
-  stroke: #FFFFFF;
+  stroke: #ffffff;
   cursor: pointer;
 }
 
 .btnIcon:active {
   fill: #696969;
-  stroke: #FFFFFF;
+  stroke: #ffffff;
   cursor: pointer;
+}
+
+.activeRepeat svg {
+  fill: #ad61ff;
+  stroke: #ad61ff;
+  height: 22px;
+  width: 20px;
 }
