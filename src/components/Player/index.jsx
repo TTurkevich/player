@@ -22,13 +22,16 @@ const Player = () => {
 
   const { duration } = audioRef.current
 
-  const currentPercentage = duration
-    ? `${(trackProgress / duration) * 100}%`
-    : '0%'
+  const changeTrackStyling = () => {
+    const currentPercentage = duration
+      ? `${(trackProgress / duration) * 100}%`
+      : '0%'
 
-  const trackStyling = `
+    const trackStyling = `
   -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #d9b6ff ), color-stop(${currentPercentage}, #2e2e2e ))
   `
+    return trackStyling
+  }
 
   const startTimer = () => {
     clearInterval(intervalRef.current)
@@ -63,7 +66,7 @@ const Player = () => {
   }
 
   const nextTrack = () => {
-    if (trackIndex < tracks.length - 1) {
+    if (trackIndex < audioTracks.length - 1) {
       setTrackIndex(trackIndex + 1)
     } else {
       setTrackIndex(0)
@@ -136,7 +139,7 @@ const Player = () => {
           onChange={(e) => onScrub(e.target.value)}
           onMouseUp={onScrubEnd}
           onKeyUp={onScrubEnd}
-          style={{ background: `${trackStyling}` }}
+          style={{ background: `${changeTrackStyling()}` }}
         />
         <div className={classes.playerBlock}>
           <Controls

@@ -17,56 +17,51 @@ const Buttons = ({
   activeRepeat,
   onShuffleTracks,
 }) => {
+  const repeatClassNames = cn({
+    [classes.repeat]: true,
+    [classes.btn]: true,
+    [classes.btnIcon]: true,
+    [classes.activeRepeat]: activeRepeat,
+  })
+
   return (
     <div className={classes.controls}>
-      <div
+      <button
         className={cn(classes.prev, classes.btn, classes.btnIcon)}
         onClick={onPrevClick}
       >
         <Prev className={classes.prevIcon} />
-      </div>
+      </button>
       {isPlaying ? (
-        <div
+        <button
           className={cn(classes.play, classes.btn, classes.btnIcon)}
           onClick={() => onPlayPauseClick(false)}
         >
           <Pause className={classes.playIcon} />
-        </div>
+        </button>
       ) : (
-        <div
+        <button
           className={cn(classes.play, classes.btn, classes.btnIcon)}
           onClick={() => onPlayPauseClick(true)}
         >
           <Play className={classes.playIcon} />
-        </div>
+        </button>
       )}
-      <div
+      <button
         className={cn(classes.next, classes.btn, classes.btnIcon)}
         onClick={onNextClick}
       >
         <Next className={classes.prevIcon} />
-      </div>
-      <div
-        className={
-          activeRepeat
-            ? cn(
-                classes.activeRepeat,
-                classes.repeat,
-                classes.btn,
-                classes.btnIcon
-              )
-            : cn(classes.repeat, classes.btn, classes.btnIcon)
-        }
-        onClick={onRepeatTrack}
-      >
+      </button>
+      <button className={repeatClassNames} onClick={onRepeatTrack}>
         <Repeat className={classes.repeatIcon} />
-      </div>
-      <div
+      </button>
+      <button
         className={cn(classes.shuffle, classes.btn, classes.btnIcon)}
         onClick={onShuffleTracks}
       >
         <Shuffle className={classes.shuffleIcon} />
-      </div>
+      </button>
     </div>
   )
 }

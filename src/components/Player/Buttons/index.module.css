@@ -75,6 +75,8 @@
 
 .btn {
   cursor: pointer;
+  background: inherit;
+  border: none;
 }
 
 .btnIcon:hover svg {
