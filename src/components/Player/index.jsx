@@ -7,6 +7,17 @@ import Controls from './Controls'
 import Volume from './Volume'
 import tracks from '../../server/tracks'
 
+const changeTrackStyling = (duration, trackProgress) => {
+  const currentPercentage = duration
+    ? `${(trackProgress / duration) * 100}%`
+    : '0%'
+
+  const trackStyling = `
+-webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #d9b6ff ), color-stop(${currentPercentage}, #2e2e2e ))
+`
+  return trackStyling
+}
+
 const Player = () => {
   const [audioTracks, setAudioTracks] = useState(tracks)
   const [trackIndex, setTrackIndex] = useState(0)
@@ -14,24 +25,17 @@ const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [activeRepeat, setActiveRepeat] = useState(false)
 
-  const { title, author, url } = audioTracks[trackIndex]
+  const track = audioTracks[trackIndex]
 
-  const audioRef = useRef(new Audio(url))
+  if (!track) return null
+
+  const audioRef = useRef(new Audio(track.url))
   const intervalRef = useRef()
   const isReady = useRef(false)
 
   const { duration } = audioRef.current
 
-  const changeTrackStyling = () => {
-    const currentPercentage = duration
-      ? `${(trackProgress / duration) * 100}%`
-      : '0%'
-
-    const trackStyling = `
-  -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #d9b6ff ), color-stop(${currentPercentage}, #2e2e2e ))
-  `
-    return trackStyling
-  }
+  const colorTrackBar = changeTrackStyling(duration, trackProgress)
 
   const startTimer = () => {
     clearInterval(intervalRef.current)
@@ -107,7 +111,7 @@ const Player = () => {
 
   useEffect(() => {
     audioRef.current.pause()
-    audioRef.current = new Audio(url)
+    audioRef.current = new Audio(track.url)
     setTrackProgress(audioRef.current.currentTime)
 
     if (isPlaying && isReady.current) {
@@ -139,12 +143,12 @@ const Player = () => {
           onChange={(e) => onScrub(e.target.value)}
           onMouseUp={onScrubEnd}
           onKeyUp={onScrubEnd}
-          style={{ background: `${changeTrackStyling()}` }}
+          style={{ background: `${colorTrackBar}` }}
         />
         <div className={classes.playerBlock}>
           <Controls
-            title={title}
-            author={author}
+            title={track.title}
+            author={track.author}
             isPlaying={isPlaying}
             onPlayPauseClick={setIsPlaying}
             onPrevClick={prevTrack}

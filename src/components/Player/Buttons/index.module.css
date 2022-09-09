@@ -73,33 +73,14 @@
   flex-direction: row;
 }
 
-.btn {
-  cursor: pointer;
-  background: inherit;
-  border: none;
-}
-
-.btnIcon:hover svg {
-  fill: transparent;
-  stroke: #acacac;
-  cursor: pointer;
-}
-
-.btnIcon:active svg {
-  fill: transparent;
-  stroke: #ffffff;
-  cursor: pointer;
-}
-
-.btnIcon:active {
-  fill: #696969;
-  stroke: #ffffff;
-  cursor: pointer;
-}
-
 .activeRepeat svg {
-  fill: #ad61ff;
-  stroke: #ad61ff;
-  height: 22px;
-  width: 20px;
+  fill: #fff;
+  stroke: #fff;
+}
+
+.play svg path:hover,
+.prev svg path:hover,
+.next svg path:hover {
+  fill: #696969;
+  stroke: #696969;
 }
