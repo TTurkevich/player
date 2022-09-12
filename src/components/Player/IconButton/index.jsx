@@ -1,13 +1,13 @@
 import cn from 'classnames'
 import classes from './index.module.css'
 
-const IconButton = ({ onChange, classNameBtn, Icon, classNameIcon }) => {
+const IconButton = ({ onChange, buttonClassName, Icon, iconClassName }) => {
   return (
     <button
-      className={cn(classNameBtn, cn(classes.btn, classes.btnIcon))}
+      className={cn(buttonClassName, cn(classes.btn, classes.btnIcon))}
       onClick={onChange}
     >
-      <Icon className={classNameIcon} />
+      <Icon className={iconClassName} />
     </button>
   )
 }

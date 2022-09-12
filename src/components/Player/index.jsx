@@ -26,14 +26,43 @@ const Player = () => {
   const [activeRepeat, setActiveRepeat] = useState(false)
 
   const track = audioTracks[trackIndex]
+  const audioRef = useRef(new Audio(track?.url))
+  const { duration } = audioRef.current
 
-  if (!track) return null
-
-  const audioRef = useRef(new Audio(track.url))
   const intervalRef = useRef()
   const isReady = useRef(false)
 
-  const { duration } = audioRef.current
+  useEffect(() => {
+    audioRef.current.pause()
+    audioRef.current = new Audio(track?.url)
+    setTrackProgress(audioRef.current.currentTime)
+
+    if (isPlaying && isReady.current) {
+      audioRef.current.play()
+      setIsPlaying(true)
+      startTimer()
+    } else {
+      isReady.current = true
+    }
+  }, [trackIndex])
+
+  useEffect(() => {
+    return () => {
+      audioRef.current.pause()
+      clearInterval(intervalRef.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play()
+      startTimer()
+    } else {
+      audioRef.current.pause()
+    }
+  }, [isPlaying])
+
+  if (!track) return null
 
   const colorTrackBar = changeTrackStyling(duration, trackProgress)
 
@@ -99,36 +128,6 @@ const Player = () => {
     audioRef.current.currentTime = 0
     setTrackIndex(0)
   }
-
-  useEffect(() => {
-    if (isPlaying) {
-      audioRef.current.play()
-      startTimer()
-    } else {
-      audioRef.current.pause()
-    }
-  }, [isPlaying])
-
-  useEffect(() => {
-    audioRef.current.pause()
-    audioRef.current = new Audio(track.url)
-    setTrackProgress(audioRef.current.currentTime)
-
-    if (isPlaying && isReady.current) {
-      audioRef.current.play()
-      setIsPlaying(true)
-      startTimer()
-    } else {
-      isReady.current = true
-    }
-  }, [trackIndex])
-
-  useEffect(() => {
-    return () => {
-      audioRef.current.pause()
-      clearInterval(intervalRef.current)
-    }
-  }, [])
 
   return (
     <div className={classes.bar}>

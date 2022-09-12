@@ -25,33 +25,33 @@ const Buttons = ({
   return (
     <div className={classes.controls}>
       <IconButton
-        classNameBtn={classes.prev}
+        buttonClassName={classes.prev}
         Icon={Prev}
-        classNameIcon={classes.prevIcon}
+        iconClassName={classes.prevIcon}
         onChange={onPrevClick}
       />
       <IconButton
-        classNameBtn={classes.play}
+        buttonClassName={classes.play}
         Icon={isPlaying ? Pause : Play}
-        classNameIcon={classes.playIcon}
+        iconClassName={classes.playIcon}
         onChange={() => onPlayPauseClick(isPlaying ? false : true)}
       />
       <IconButton
-        classNameBtn={classes.next}
+        buttonClassName={classes.next}
         Icon={Next}
-        classNameIcon={classes.nextIcon}
+        iconClassName={classes.nextIcon}
         onChange={onNextClick}
       />
       <IconButton
-        classNameBtn={repeatClassNames}
+        buttonClassName={repeatClassNames}
         Icon={Repeat}
-        classNameIcon={classes.repeatIcon}
+        iconClassName={classes.repeatIcon}
         onChange={onRepeatTrack}
       />
       <IconButton
-        classNameBtn={classes.shuffle}
+        buttonClassName={classes.shuffle}
         Icon={Shuffle}
-        classNameIcon={classes.shuffleIcon}
+        iconClassName={classes.shuffleIcon}
         onChange={onShuffleTracks}
       />
     </div>
