@@ -4,8 +4,7 @@ import classes from './index.module.css'
 
 import SkeletonPlaylist from '../Skeleton/SkeletonPlaylist'
 import Track from '../Track'
-import trackData from '../../server/trackData'
-
+import trackData from '../../server/tracks'
 
 const Playlist = () => {
   const [list, setList] = useState([])
@@ -24,9 +23,15 @@ const Playlist = () => {
     <div className={classes.playlist}>
       {loading && <SkeletonPlaylist />}
       {!loading &&
-        list.map((track, index) => {
-          return <Track key={index} track={track} />
-        })}
+        list.map((track, index) => (
+          <Track
+            key={index}
+            title={track.title}
+            album={track.album}
+            author={track.author}
+            time={track.time}
+          />
+        ))}
     </div>
   )
 }

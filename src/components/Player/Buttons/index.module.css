@@ -73,24 +73,14 @@
   flex-direction: row;
 }
 
-.btn {
-  cursor: pointer;
+.activeRepeat svg {
+  fill: #fff;
+  stroke: #fff;
 }
 
-.btnIcon:hover svg {
-  fill: transparent;
-  stroke: #ACACAC;
-  cursor: pointer;
-}
-
-.btnIcon:active svg {
-  fill: transparent;
-  stroke: #FFFFFF;
-  cursor: pointer;
-}
-
-.btnIcon:active {
+.play svg path:hover,
+.prev svg path:hover,
+.next svg path:hover {
   fill: #696969;
-  stroke: #FFFFFF;
-  cursor: pointer;
+  stroke: #696969;
 }

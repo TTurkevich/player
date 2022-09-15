@@ -7,7 +7,7 @@
 
 .dislike {
   padding: 5px;
-  margin-left: 28.5px;
+  margin-left: 28px;
 }
 
 .dislikeIcon {
@@ -32,14 +32,12 @@
   cursor: pointer;
 }
 
-.btnIcon:hover svg{
-  fill: transparent;
-  stroke: #ACACAC;
-  cursor: pointer;
+.btnIcon svg path:hover {
+  stroke: #acacac;
 }
 
-.btnIcon:active svg{
+.btnIcon:active svg {
   fill: #696969;
-  stroke: #FFFFFF;
+  stroke: #ffffff;
   cursor: pointer;
 }

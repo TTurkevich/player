@@ -6,17 +6,23 @@ import LikeDislike from '../LikeDislike'
 import SkeletonTrackPlay from '../../Skeleton/SkeletonTrackPlay'
 import Buttons from '../Buttons'
 import TrackPlay from '../TrackPlay'
-import trackPlayData from '../../../server/trackPlayData'
 
-
-const Controls = () => {
-  const [trackPlay, setTrackPlay] = useState([])
+const Controls = ({
+  title,
+  author,
+  isPlaying,
+  onPlayPauseClick,
+  onPrevClick,
+  onNextClick,
+  onRepeatTrack,
+  activeRepeat,
+  onShuffleTracks,
+}) => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     setLoading(true)
     const timing = setTimeout(() => {
-      setTrackPlay(trackPlayData)
       setLoading(false)
     }, 5000)
     return () => clearTimeout(timing)
@@ -24,13 +30,18 @@ const Controls = () => {
 
   return (
     <div className={classes.player}>
-      <Buttons />
+      <Buttons
+        isPlaying={isPlaying}
+        onPlayPauseClick={onPlayPauseClick}
+        onPrevClick={onPrevClick}
+        onNextClick={onNextClick}
+        onRepeatTrack={onRepeatTrack}
+        activeRepeat={activeRepeat}
+        onShuffleTracks={onShuffleTracks}
+      />
       <div className={classes.trackPlay}>
         {loading && <SkeletonTrackPlay />}
-        {!loading &&
-          trackPlay.map((track, index) => {
-            return <TrackPlay key={index} track={track} />
-          })}
+        {!loading && <TrackPlay title={title} author={author} />}
         <LikeDislike />
       </div>
     </div>

@@ -9,7 +9,7 @@ const Title = ({ title, clarification }) => {
         <Note className={classes.titleIcon} />
       </div>
       <div>
-        <a className={classes.titleLink} href="http://">
+        <a className={classes.titleLink} href="#">
           {title}
           <span className={classes.сlarification}>{clarification}</span>
         </a>

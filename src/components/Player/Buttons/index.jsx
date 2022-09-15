@@ -1,54 +1,59 @@
+import cn from 'classnames'
 import classes from './index.module.css'
+
+import IconButton from '../IconButton'
 import Prev from '../../Icons/Prev'
 import Play from '../../Icons/Play'
+import Pause from '../../Icons/Pause'
 import Next from '../../Icons/Next'
 import Repeat from '../../Icons/Repeat'
 import Shuffle from '../../Icons/Shuffle'
 
-const icons = [
-  {
-    key: 1,
-    Component: Prev,
-    wrapperClassName: [classes.prev, classes.btn, classes.btnIcon],
-    iconClassName: 'prevIcon',
-  },
-  {
-    key: 2,
-    Component: Play,
-    wrapperClassName: [classes.play, classes.btn, classes.btnIcon],
-    iconClassName: 'playIcon',
-  },
-  {
-    key: 3,
-    Component: Next,
-    wrapperClassName: [classes.next, classes.btn, classes.btnIcon],
-    iconClassName: 'nextIcon',
-  },
-  {
-    key: 4,
-    Component: Repeat,
-    wrapperClassName: [classes.repeat, classes.btn, classes.btnIcon],
-    iconClassName: 'repeatIcon',
-  },
-  {
-    key: 5,
-    Component: Shuffle,
-    wrapperClassName: [classes.shuffle, classes.btn, classes.btnIcon],
-    iconClassName: 'shuffleIcon',
-  },
-]
+const Buttons = ({
+  isPlaying,
+  onPlayPauseClick,
+  onPrevClick,
+  onNextClick,
+  onRepeatTrack,
+  activeRepeat,
+  onShuffleTracks,
+}) => {
+  const repeatClassNames = cn(classes.repeat, {
+    [classes.activeRepeat]: activeRepeat,
+  })
 
-const Buttons = () => {
   return (
     <div className={classes.controls}>
-      {icons.map((Icon) => (
-        <div
-          key={Icon.key}
-          className={Icon.wrapperClassName.map((item) => item).join(' ')}
-        >
-          <Icon.Component className={classes[Icon.iconClassName]} />
-        </div>
-      ))}
+      <IconButton
+        buttonClassName={classes.prev}
+        Icon={Prev}
+        iconClassName={classes.prevIcon}
+        onChange={onPrevClick}
+      />
+      <IconButton
+        buttonClassName={classes.play}
+        Icon={isPlaying ? Pause : Play}
+        iconClassName={classes.playIcon}
+        onChange={() => onPlayPauseClick(isPlaying ? false : true)}
+      />
+      <IconButton
+        buttonClassName={classes.next}
+        Icon={Next}
+        iconClassName={classes.nextIcon}
+        onChange={onNextClick}
+      />
+      <IconButton
+        buttonClassName={repeatClassNames}
+        Icon={Repeat}
+        iconClassName={classes.repeatIcon}
+        onChange={onRepeatTrack}
+      />
+      <IconButton
+        buttonClassName={classes.shuffle}
+        Icon={Shuffle}
+        iconClassName={classes.shuffleIcon}
+        onChange={onShuffleTracks}
+      />
     </div>
   )
 }

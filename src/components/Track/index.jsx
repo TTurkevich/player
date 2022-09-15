@@ -7,35 +7,29 @@ import Album from './Album'
 import Time from './Time'
 import Title from './Title'
 
-const Track = ({ track }) => {
+const Track = ({ title, album, author, time }) => {
   return (
-    <>
-      {track.items.map((item, index) => {
-        return (
-          <div key={index} className={classes.item}>
-            <div className={classes.track}>
-              <Title title={item.title} />
-              <Author
-                wrapperClassName={classes.author}
-                linkClassName={classes.authorLink}
-                title={item.author}
-              />
-              <Album
-                wrapperClassName={classes.album}
-                linkClassName={classes.albumLink}
-                title={item.album}
-              />
-              <Time
-                wrapperClassName={cn(classes.btnIcon, classes.btn)}
-                timeClassName={classes.timeText}
-                time={item.time}
-                className={classes.timeIcon}
-              />
-            </div>
-          </div>
-        )
-      })}
-    </>
+    <div className={classes.item}>
+      <div className={classes.track}>
+        <Title title={title} />
+        <Author
+          wrapperClassName={classes.author}
+          linkClassName={classes.authorLink}
+          title={author}
+        />
+        <Album
+          wrapperClassName={classes.album}
+          linkClassName={classes.albumLink}
+          title={album}
+        />
+        <Time
+          wrapperClassName={cn(classes.btnIcon, classes.btn)}
+          timeClassName={classes.timeText}
+          time={time}
+          className={classes.timeIcon}
+        />
+      </div>
+    </div>
   )
 }
 
