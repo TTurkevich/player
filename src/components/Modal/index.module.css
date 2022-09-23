@@ -6,7 +6,6 @@
   right: 0;
   width: 424px;
   height: 138px;
-  background-color: #313131;
   border-radius: 12px;
   padding-left: 34px;
   padding-right: 34px;
@@ -16,8 +15,16 @@
   z-index: 9999;
 }
 
+.modal.dark {
+  background-color: #313131;
+}
+
+.modal.light {
+  background-color: #f6f5f3;
+}
+
 .modalContent a {
-  color: white;
+  color: inherit;
   text-decoration: none;
   font-size: 20px;
 }
@@ -36,7 +43,6 @@
   width: 100%;
   height: 100%;
   padding: 10px;
-  background: #313131;
   overflow: hidden;
   display: flex;
   flex-direction: row;

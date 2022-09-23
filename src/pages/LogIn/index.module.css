@@ -1,3 +1,17 @@
+.container {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.container.dark {
+  background-color: #181818;
+}
+
+.container.light {
+  background-color: #f6f4f4;
+}
+
 .loginBlock {
   position: absolute;
   z-index: 2;
@@ -19,6 +33,7 @@
 
 .logo {
   margin-bottom: 34px;
+  fill: #000000;
 }
 
 .input {

@@ -1,11 +1,15 @@
 import { useNavigate } from 'react-router-dom'
 
 import cn from 'classnames'
+
+import { useTheme } from '../../context/Theme/ThemeProvider'
+
 import classes from './index.module.css'
 
-import Logo from '../../components/Logo'
+import LogoIcon from '../../components/Icons/LogoIcon'
 
 const SignUp = () => {
+  const { theme } = useTheme()
   const navigate = useNavigate()
 
   const fromPage = '/login'
@@ -16,34 +20,36 @@ const SignUp = () => {
   }
 
   return (
-    <div className={classes.loginBlock}>
-      <form className={classes.register} action="#" onSubmit={handleSubmit}>
-        <Logo className={classes.logo} src="/img/logoBlack.png" />
-        <input
-          className={classes.input}
-          placeholder='Логин'
-          name="name"
-          id='loginReg'
-          type='text'
-        />
-        <input
-          className={classes.input}
-          placeholder='Пароль'
-          name="password"
-          id='passwordFirst'
-          type='password'
-        />
-        <input
-          className={classes.input}
-          placeholder='Повторите пароль'
-          name="password"
-          id='passwordSecond'
-          type='password'
-        />
-        <button className={cn(classes.btn, classes.signUp)}>
-          Зарегистрироваться
-        </button>
-      </form>
+    <div className={cn(classes.container, classes[`${theme}`])}>
+      <div className={classes.loginBlock}>
+        <form className={classes.register} action="#" onSubmit={handleSubmit}>
+          <LogoIcon className={classes.logo} />
+          <input
+            className={classes.input}
+            placeholder="Логин"
+            name="name"
+            id="loginReg"
+            type="text"
+          />
+          <input
+            className={classes.input}
+            placeholder="Пароль"
+            name="password"
+            id="passwordFirst"
+            type="password"
+          />
+          <input
+            className={classes.input}
+            placeholder="Повторите пароль"
+            name="password"
+            id="passwordSecond"
+            type="password"
+          />
+          <button className={cn(classes.btn, classes.signUp)}>
+            Зарегистрироваться
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

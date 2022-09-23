@@ -1,27 +1,29 @@
 .button {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    border: 1px solid #ffffff;
-    border-radius: 60px;
-    padding: 6px 20px;
-    cursor: pointer;
-  }
-  
-  .button:not(:last-child) {
-    margin-right: 10px;
-  }
-  
-  .activeClass {
-    border-color: #ad61ff;
-    color: #ad61ff;
-    cursor: pointer;
-  }
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 60px;
+  padding: 6px 20px;
+  cursor: pointer;
+  border: 1px solid;
+}
 
-  .button:hover {
-    border-color: #D9B6FF;
-    color: #D9B6FF;
-    cursor: pointer;
-  }
-  
+.button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.activeClass {
+  border-color: #ad61ff;
+  color: #ad61ff;
+}
+
+.button.dark:hover {
+  border: 1px solid #d9b6ff;
+  color: #d9b6ff;
+}
+
+.button.light:hover {
+  border: 1px solid #580ea2;
+  color: #580ea2;
+}

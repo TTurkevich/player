@@ -11,7 +11,14 @@
   display: inline-block;
   width: 100%;
   height: 1px;
+}
+
+.line.dark {
   background-color: #d3d3d3;
+}
+
+.line.light {
+  background-color: #000;
 }
 
 .burger:hover {

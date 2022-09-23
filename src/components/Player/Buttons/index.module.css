@@ -14,73 +14,94 @@
   align-items: center;
 }
 
-.prev {
+.prev,
+.play,
+.repeat {
   margin-right: 23px;
 }
 
-.prevIcon {
-  width: 15px;
-  height: 14px;
+.next {
+  margin-right: 28px;
 }
 
 .play {
-  margin-right: 23px;
+  flex-direction: row;
 }
 
-.playIcon {
+.prevIcon.dark,
+.nextIcon.dark {
+  fill: #d9d9d9;
+  stroke: #d9d9d9;
+}
+
+.playIcon.dark {
   width: 22px;
   height: 20px;
   fill: #d9d9d9;
 }
 
-.next {
-  margin-right: 28px;
-  fill: #a53939;
-}
-
-.nextIcon {
-  width: 15px;
-  height: 14px;
-  fill: inherit;
-  stroke: #d9d9d9;
-}
-
-.repeat {
-  margin-right: 24px;
-}
-
-.repeatIcon {
+.repeatIcon.dark,
+.shuffleIcon.dark {
   width: 18px;
   height: 12px;
-  fill: transparent;
   stroke: #696969;
 }
 
-.shuffle {
-  display: flex;
-  align-items: center;
+.playIcon.dark:hover,
+.prevIcon.dark:hover,
+.nextIcon.dark:hover,
+.repeatIcon.dark:hover,
+.shuffleIcon.dark:hover {
+  fill: #acacac;
+  stroke: #acacac;
 }
 
-.shuffleIcon {
-  width: 19px;
+.playIcon.dark:active,
+.prevIcon.dark:active,
+.nextIcon.dark:active,
+.repeatIcon.dark:active,
+.shuffleIcon.dark:active {
+  fill: #696969;
+  stroke: #fff;
+}
+
+.prevIcon.light,
+.nextIcon.light {
+  fill: #b1b1b1;
+  stroke: #b1b1b1;
+}
+
+.playIcon.light {
+  width: 22px;
+  height: 20px;
+  fill: #b1b1b1;
+}
+
+.repeatIcon.light,
+.shuffleIcon.light {
+  width: 18px;
   height: 12px;
-  fill: transparent;
-  stroke: #696969;
+  stroke: #b1b1b1;
 }
 
-.play {
-  display: flex;
-  flex-direction: row;
+.playIcon.light:hover,
+.prevIcon.light:hover,
+.nextIcon.light:hover,
+.repeatIcon.light:hover,
+.shuffleIcon.light:hover {
+  fill: #707070;
+  stroke: #707070;
+}
+
+.playIcon.light:active,
+.prevIcon.light:active,
+.nextIcon.light:active,
+.repeatIcon.light:active,
+.shuffleIcon.light:active {
+  stroke: #000;
 }
 
 .activeRepeat svg {
   fill: #fff;
   stroke: #fff;
-}
-
-.play svg path:hover,
-.prev svg path:hover,
-.next svg path:hover {
-  fill: #696969;
-  stroke: #696969;
 }

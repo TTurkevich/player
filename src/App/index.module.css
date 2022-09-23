@@ -2,7 +2,16 @@
   width: 100%;
   min-height: 100%;
   overflow: hidden;
-  background-color: #383838;
+}
+
+.wrapper.dark {
+  background-color: #181818;
+  color: #fff;
+}
+
+.wrapper.light {
+  background-color: #fff;
+  color: black;
 }
 
 .container {
@@ -10,5 +19,4 @@
   height: 100vh;
   margin: 0 auto;
   position: relative;
-  background-color: #181818;
 }

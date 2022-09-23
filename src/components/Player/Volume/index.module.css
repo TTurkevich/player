@@ -13,13 +13,20 @@
 }
 
 .image {
-  width: 13px;
-  height: 18px;
   margin-right: 17px;
 }
 
 .icon {
   width: 13px;
   height: 18px;
-  fill: transparent;
+}
+
+.icon.dark {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.icon.light {
+  fill: #b1b1b1;
+  stroke: #b1b1b1;
 }

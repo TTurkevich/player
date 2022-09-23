@@ -2,11 +2,18 @@
   width: 113px;
   height: 43px;
   padding: 13px 0 13px 0;
-  background-color: transparent;  
+  background-color: transparent;
 }
 
 .image {
   width: 113px;
   height: 17px;
-  color: #181818;
+}
+
+.image.dark {
+  fill: #fff;
+}
+
+.image.light {
+  fill: #000;
 }

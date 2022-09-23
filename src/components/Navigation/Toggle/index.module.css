@@ -1,0 +1,15 @@
+.button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.button.dark {
+  background-image: url('/public/img/moon.png');
+}
+
+.button.light {
+  background-image: url('/public/img/sun.png');
+}

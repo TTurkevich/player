@@ -1,0 +1,30 @@
+.image {
+  width: 51px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  grid-area: image;
+}
+
+.image.dark {
+  background-color: #313131;
+}
+
+.image.light {
+  background-color: #f6f4f4;
+}
+
+.icon {
+  width: 18px;
+  height: 17px;
+}
+
+.icon.dark {
+  stroke: #4e4e4e;
+}
+
+.icon.light {
+  stroke: #b1b1b1;
+}

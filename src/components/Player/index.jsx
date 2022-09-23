@@ -1,24 +1,38 @@
 import { useState, useEffect, useRef } from 'react'
 
 import cn from 'classnames'
-import classes from './index.module.css'
+
+import { useTheme } from '../../context/Theme/ThemeProvider'
 
 import Controls from './Controls'
 import Volume from './Volume'
 import tracks from '../../server/tracks'
 
-const changeTrackStyling = (duration, trackProgress) => {
+import classes from './index.module.css'
+
+const changeTrackStyling = (duration, trackProgress, theme) => {
+  let colorStart, colorStop
+
+  if (theme === 'dark') {
+    colorStart = '#AD61FF'
+    colorStop = '#2e2e2e'
+  } else {
+    colorStart = '#AD61FF'
+    colorStop = '#d9d9d9'
+  }
   const currentPercentage = duration
     ? `${(trackProgress / duration) * 100}%`
     : '0%'
 
   const trackStyling = `
--webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #d9b6ff ), color-stop(${currentPercentage}, #2e2e2e ))
+-webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, ${colorStart} ), color-stop(${currentPercentage}, ${colorStop} ))
 `
+
   return trackStyling
 }
 
 const Player = () => {
+  const { theme } = useTheme()
   const [audioTracks, setAudioTracks] = useState(tracks)
   const [trackIndex, setTrackIndex] = useState(0)
   const [trackProgress, setTrackProgress] = useState(0)
@@ -64,7 +78,7 @@ const Player = () => {
 
   if (!track) return null
 
-  const colorTrackBar = changeTrackStyling(duration, trackProgress)
+  const colorTrackBar = changeTrackStyling(duration, trackProgress, theme)
 
   const startTimer = () => {
     clearInterval(intervalRef.current)
@@ -133,7 +147,7 @@ const Player = () => {
     <div className={classes.bar}>
       <div className={classes.content}>
         <input
-          className={cn(classes.playerProgress, classes.barProgress)}
+          className={cn(classes.playerProgress, classes[`${theme}`])}
           type="range"
           value={trackProgress}
           step="1"
@@ -142,7 +156,9 @@ const Player = () => {
           onChange={(e) => onScrub(e.target.value)}
           onMouseUp={onScrubEnd}
           onKeyUp={onScrubEnd}
-          style={{ background: `${colorTrackBar}` }}
+          style={{
+            background: `${colorTrackBar}`,
+          }}
         />
         <div className={classes.playerBlock}>
           <Controls

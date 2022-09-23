@@ -1,57 +1,7 @@
-.trackPlay {
-  display: flex;
-  flex-direction: row;
-}
-
 .contain {
   width: auto;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-areas: 'image author' 'image album';
+  grid-template-areas: 'image author' 'image title';
   align-items: center;
-}
-
-.image {
-  width: 51px;
-  height: 51px;
-  background-color: #313131;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 12px;
-  grid-area: image;
-}
-
-.icon {
-  width: 18px;
-  height: 17px;
-  fill: transparent;
-  stroke: #4e4e4e;
-}
-
-.album {
-  grid-area: album;
-  width: auto;
-}
-
-.albumLink {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 24px;
-  color: #ffffff;
-}
-
-.author {
-  grid-area: author;
-  width: auto;
-}
-
-.authorLink {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ffffff;
-  white-space: nowrap;
 }
