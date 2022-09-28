@@ -10,11 +10,11 @@ const TrackTableHats = () => {
   const { theme } = useTheme()
   return (
     <div className={classes.title}>
-      <div className={cn(classes.col, classes[`${theme}`])}>Трек</div>
-      <div className={cn(classes.col, classes[`${theme}`])}>Иcполнитель</div>
-      <div className={cn(classes.col, classes[`${theme}`])}>Альбом</div>
-      <div className={cn(classes.col, classes[`${theme}`])}>
-        <Watch className={cn(classes.icon, classes[`${theme}`])} />
+      <div className={cn(classes.col, classes[theme])}>Трек</div>
+      <div className={cn(classes.col, classes[theme])}>Иcполнитель</div>
+      <div className={cn(classes.col, classes[theme])}>Альбом</div>
+      <div className={cn(classes.col, classes[theme])}>
+        <Watch className={cn(classes.icon, classes[theme])} />
       </div>
     </div>
   )

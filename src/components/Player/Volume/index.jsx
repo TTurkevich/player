@@ -13,7 +13,7 @@ const Volume = () => {
     <div className={classes.volumeBlock}>
       <div className={classes.content}>
         <div className={classes.image}>
-          <VolumeSpeaker className={cn(classes.icon, classes[`${theme}`])} />
+          <VolumeSpeaker className={cn(classes.icon, classes[theme])} />
         </div>
         <VolumeProgress />
       </div>

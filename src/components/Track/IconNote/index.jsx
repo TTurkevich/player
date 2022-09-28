@@ -10,8 +10,8 @@ const IconNote = () => {
   const { theme } = useTheme()
 
   return (
-    <div className={cn(classes.image, classes[`${theme}`])}>
-      <Note className={cn(classes.icon, classes[`${theme}`])} />
+    <div className={cn(classes.image, classes[theme])}>
+      <Note className={cn(classes.icon, classes[theme])} />
     </div>
   )
 }

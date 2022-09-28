@@ -8,7 +8,7 @@ const Album = ({ title }) => {
   const { theme } = useTheme()
   return (
     <div className={classes.album}>
-      <a className={cn(classes.albumLink, classes[`${theme}`])} href="#">
+      <a className={cn(classes.albumLink, classes[theme])} href="#">
         {title}
       </a>
     </div>

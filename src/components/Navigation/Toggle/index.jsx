@@ -10,7 +10,7 @@ const Toggle = () => {
     <>
       <button
         onClick={toggleTheme}
-        className={cn(classes.button, classes[`${theme}`])}
+        className={cn(classes.button, classes[theme])}
       ></button>
     </>
   )

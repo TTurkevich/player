@@ -14,7 +14,7 @@ const Nav = () => {
   const [menuActive, setMenuActive] = useState(false)
 
   return (
-    <nav className={cn(classes.nav, classes[`${theme}`])}>
+    <nav className={cn(classes.nav, classes[theme])}>
       <Logo className={classes.logo} />
       <Burger active={menuActive} setActive={setMenuActive} />
       <Menu active={menuActive} setActive={setMenuActive} />

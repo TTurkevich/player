@@ -7,7 +7,7 @@ const Modal = ({ isVisible = false, content }) => {
   const { theme } = useTheme()
 
   return !isVisible ? null : (
-    <div className={cn(classes.modal, classes[`${theme}`])}>
+    <div className={cn(classes.modal, classes[theme])}>
       <div className={classes.modalContent}>
         {content.map((item, index) => (
           <a key={index} href="#">

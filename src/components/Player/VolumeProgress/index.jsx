@@ -38,7 +38,7 @@ const VolumeProgress = () => {
   return (
     <input
       ref={divProgress}
-      className={cn(classes.slider, classes[`${theme}`])}
+      className={cn(classes.slider, classes[theme])}
       style={{
         background: `${colorProgress}`,
       }}

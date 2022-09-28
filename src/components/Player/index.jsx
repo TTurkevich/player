@@ -147,7 +147,7 @@ const Player = () => {
     <div className={classes.bar}>
       <div className={classes.content}>
         <input
-          className={cn(classes.playerProgress, classes[`${theme}`])}
+          className={cn(classes.playerProgress, classes[theme])}
           type="range"
           value={trackProgress}
           step="1"

@@ -12,7 +12,7 @@ const FilterButton = ({ onChange, activeBtn, dataId, text }) => {
       data-id={dataId}
       className={
         activeBtn === dataId
-          ? cn(classes.button, classes[`${theme}`], classes.activeClass)
+          ? cn(classes.button, classes[theme], classes.activeClass)
           : classes.button
       }
       onClick={() => {

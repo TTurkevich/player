@@ -17,7 +17,7 @@ const SkeletonRecommendations = () => {
               className={cn(
                 classes.selections,
                 classes.skeleton,
-                classes[`${theme}`]
+                classes[theme]
               )}
             ></div>
           )

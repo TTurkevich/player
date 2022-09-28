@@ -15,7 +15,7 @@ const Title = ({ title, clarification }) => {
       <div>
         <a className={classes.titleLink} href="#">
           {title}
-          <span className={cn(classes.сlarification, classes[`${theme}`])}>
+          <span className={cn(classes.сlarification, classes[theme])}>
             {clarification}
           </span>
         </a>

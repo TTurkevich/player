@@ -19,14 +19,14 @@ const SkeletonPlaylist = () => {
                     className={cn(
                       classes.titleImage,
                       classes.skeleton,
-                      classes[`${theme}`]
+                      classes[theme]
                     )}
                   ></div>
                   <div
                     className={cn(
                       classes.titleText,
                       classes.skeleton,
-                      classes[`${theme}`]
+                      classes[theme]
                     )}
                   ></div>
                 </div>
@@ -34,14 +34,14 @@ const SkeletonPlaylist = () => {
                   className={cn(
                     classes.author,
                     classes.skeleton,
-                    classes[`${theme}`]
+                    classes[theme]
                   )}
                 ></div>
                 <div
                   className={cn(
                     classes.album,
                     classes.skeleton,
-                    classes[`${theme}`]
+                    classes[theme]
                   )}
                 ></div>
               </div>

@@ -9,7 +9,7 @@ const Logo = ({ className }) => {
   const { theme } = useTheme()
   return (
     <div className={cn(className, classes.logo)}>
-      <LogoIcon className={cn(classes.image, classes[`${theme}`])} />
+      <LogoIcon className={cn(classes.image, classes[theme])} />
     </div>
   )
 }

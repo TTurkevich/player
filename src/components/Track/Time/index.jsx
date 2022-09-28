@@ -12,7 +12,7 @@ const Time = ({ time }) => {
   return (
     <div className={classes.container}>
       <IconButton Icon={IconLike} />
-      <span className={cn(classes.time, classes[`${theme}`])}>{time}</span>
+      <span className={cn(classes.time, classes[theme])}>{time}</span>
     </div>
   )
 }

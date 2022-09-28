@@ -9,7 +9,7 @@ const Personal = () => {
   return (
     <div className={classes.personal}>
       <p className={classes.name}>Sergey.Ivanov</p>
-      <div className={cn(classes.avatar, classes[`${theme}`])}></div>
+      <div className={cn(classes.avatar, classes[theme])}></div>
     </div>
   )
 }

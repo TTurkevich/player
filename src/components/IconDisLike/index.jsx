@@ -9,7 +9,7 @@ import classes from './index.module.css'
 const IconDisLike = () => {
   const { theme } = useTheme()
 
-  return <DisLike className={cn(classes.icon, classes[`${theme}`])} />
+  return <DisLike className={cn(classes.icon, classes[theme])} />
 }
 
 export default IconDisLike
