@@ -2,6 +2,8 @@ import cn from 'classnames'
 import { NavLink, useNavigate } from 'react-router-dom'
 import useAuthContext from '../../../Auth/useAuthContext'
 
+import Toggle from '../Toggle'
+
 import classes from './index.module.css'
 
 const Menu = ({ active, setActive }) => {
@@ -44,6 +46,9 @@ const Menu = ({ active, setActive }) => {
           >
             Выйти
           </NavLink>
+        </li>
+        <li className={classes.item}>
+          <Toggle />
         </li>
       </ul>
     </div>

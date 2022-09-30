@@ -1,7 +1,9 @@
-const Author = ({ wrapperClassName, linkClassName, title }) => {
+import classes from './index.module.css'
+
+const Author = ({ title }) => {
   return (
-    <div className={wrapperClassName}>
-      <a className={linkClassName} href="#">
+    <div className={classes.author}>
+      <a className={classes.link} href="#">
         {title}
       </a>
     </div>

@@ -1,4 +1,7 @@
 import cn from 'classnames'
+
+import { useTheme } from '../../../context/Theme/ThemeProvider'
+
 import classes from './index.module.css'
 
 import IconButton from '../IconButton'
@@ -18,6 +21,7 @@ const Buttons = ({
   activeRepeat,
   onShuffleTracks,
 }) => {
+  const { theme } = useTheme()
   const repeatClassNames = cn(classes.repeat, {
     [classes.activeRepeat]: activeRepeat,
   })
@@ -27,31 +31,31 @@ const Buttons = ({
       <IconButton
         buttonClassName={classes.prev}
         Icon={Prev}
-        iconClassName={classes.prevIcon}
+        iconClassName={cn(classes.prevIcon, classes[theme])}
         onChange={onPrevClick}
       />
       <IconButton
         buttonClassName={classes.play}
         Icon={isPlaying ? Pause : Play}
-        iconClassName={classes.playIcon}
+        iconClassName={cn(classes.playIcon, classes[theme])}
         onChange={() => onPlayPauseClick(isPlaying ? false : true)}
       />
       <IconButton
         buttonClassName={classes.next}
         Icon={Next}
-        iconClassName={classes.nextIcon}
+        iconClassName={cn(classes.nextIcon, classes[theme])}
         onChange={onNextClick}
       />
       <IconButton
         buttonClassName={repeatClassNames}
         Icon={Repeat}
-        iconClassName={classes.repeatIcon}
+        iconClassName={cn(classes.repeatIcon, classes[theme])}
         onChange={onRepeatTrack}
       />
       <IconButton
         buttonClassName={classes.shuffle}
         Icon={Shuffle}
-        iconClassName={classes.shuffleIcon}
+        iconClassName={cn(classes.shuffleIcon, classes[theme])}
         onChange={onShuffleTracks}
       />
     </div>

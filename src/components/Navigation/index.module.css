@@ -1,9 +1,17 @@
 .nav {
-    width: 244px;
-    background-color: #181818;
-    padding: 20px 0 20px 36px;
+  width: 244px;
+  height: 1003px;
+  padding: 20px 0 20px 36px;
+}
+
+.nav.dark {
+  background-color: #1c1c1c;
+}
+
+.nav.light {
+  background-color: #f6f5f3;
 }
 
 .logo {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }

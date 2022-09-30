@@ -27,6 +27,7 @@ const Playlist = () => {
           <Track
             key={index}
             title={track.title}
+            clarification={track.clarification}
             album={track.album}
             author={track.author}
             time={track.time}

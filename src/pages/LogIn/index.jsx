@@ -1,18 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom'
+
 import cn from 'classnames'
+
+import { LOGIN_INPUTS } from '../../server/AUTH_Form'
+
+import { useTheme } from '../../context/Theme/ThemeProvider'
+import useAuthContext from '../../Auth/useAuthContext'
+
+import Form from '../../components/Authorization/Form'
+import FormInput from '../../components/Authorization/FormInput'
+import Button from '../../components/Authorization/Button'
+import LogoIcon from '../../components/Icons/LogoIcon'
 
 import classes from './index.module.css'
 
-import Logo from '../../components/Logo'
-import useAuthContext from '../../Auth/useAuthContext'
-
 const LogIn = () => {
+  const { theme } = useTheme()
   const { auth, login } = useAuthContext()
   const navigate = useNavigate()
   const location = useLocation()
+  const [enabled, disabled] = useState(true)
 
-  const [invalid, setInvalid] = useState(false)
+  const [values, setValues] = useState({
+    userName: '',
+    password: '',
+  })
 
   if (auth) {
     return <Navigate to="/" replace={true} />
@@ -20,55 +33,50 @@ const LogIn = () => {
 
   const fromPage = location.state?.from?.pathname ?? '/'
 
+  const invalidInput = Object.values(values).some((item) => item === '')
+
+  useEffect(() => {
+    if (!invalidInput) {
+      return disabled(false)
+    }
+  }, [enabled, invalidInput])
+
+  const onChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value })
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    const form = event.target
-    const name = form.name.value
-    const password = form.password.value
-    const success = () => navigate(fromPage, { replace: true })
-    const failure = () => setInvalid(true)
-    login(name, password, success, failure)
+    const failure = () => {
+      console.log('пользователь не найден')
+    }
+    const success = () => {
+      navigate(fromPage, { replace: true })
+    }
+    login(values.userName, values.password, success, failure)
   }
 
   return (
-    <div className={classes.loginBlock}>
-      <form
-        className={classes.register}
-        action="#"
-        id="formLogIn"
-        onSubmit={handleSubmit}
-      >
-        <Logo className={classes.logo} src="/img/logoBlack.png" />
-        <input
-          className={
-            invalid
-              ? cn(classes.input, classes.login, classes.inputError)
-              : cn(classes.login, classes.input)
-          }
-          placeholder='Логин'
-          name="name"
-          id='login'
-          type='text'
+    <Form themeStyle={theme} onSubmit={handleSubmit}>
+      <LogoIcon className={classes.logo} />
+      {LOGIN_INPUTS.map((input) => (
+        <FormInput
+          key={input.id}
+          {...input}
+          value={values[input.name]}
+          onChange={onChange}
         />
-        <input
-          className={
-            invalid ? cn(classes.input, classes.inputError) : classes.input
-          }
-          placeholder={'Пароль'}
-          name="password"
-          id='password'
-          type='password'
-        />
-        <button id="btnEnter" className={cn(classes.btn, classes.logIn)}>
-          Войти
-        </button>
-        <button id="btnSignUp" className={cn(classes.btn, classes.signUp)}>
-          <NavLink className={cn(classes.link, classes.black)} to={'/signUp'}>
-            Зарегистрироваться
-          </NavLink>
-        </button>
-      </form>
-    </div>
+      ))}
+
+      <Button disabled={enabled} id="btnEnter" className={classes.logIn}>
+        Войти
+      </Button>
+      <Button id="btnSignUp" className={classes.signUp}>
+        <NavLink className={cn(classes.link, classes.black)} to={'/signUp'}>
+          Зарегистрироваться
+        </NavLink>
+      </Button>
+    </Form>
   )
 }
 

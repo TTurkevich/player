@@ -1,11 +1,28 @@
-.progress {
+.slider {
+  appearance: none;
   width: 109px;
-}
-
-.line {
-  width: 109px;
-}
-
-.btn {
+  height: 2px;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
   cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  border: 2px solid;
+}
+
+.slider.dark::-webkit-slider-thumb {
+  background-color: #181818;
+  border-color: #fff;
+}
+
+.slider.light::-webkit-slider-thumb {
+  background-color: #fff;
+  border-color: #b1b1b1;
 }

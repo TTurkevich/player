@@ -1,8 +1,11 @@
 import cn from 'classnames'
 
+import { useTheme } from '../../context/Theme/ThemeProvider'
+
 import classes from './index.module.css'
 
 const SkeletonRecommendations = () => {
+  const { theme } = useTheme()
   return (
     <div>
       {Array(3)
@@ -11,7 +14,11 @@ const SkeletonRecommendations = () => {
           return (
             <div
               key={index}
-              className={cn(classes.selections, classes.skeleton)}
+              className={cn(
+                classes.selections,
+                classes.skeleton,
+                classes[theme]
+              )}
             ></div>
           )
         })}

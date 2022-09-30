@@ -1,4 +1,4 @@
-const IconSearch = ({className}) => {
+const IconSearch = ({ className }) => {
   return (
     <svg
       className={className}
@@ -10,7 +10,7 @@ const IconSearch = ({className}) => {
     >
       <path
         d="M11.9276 12.7748L15.37 17.0644"
-        stroke="white"
+        stroke="current"
         strokeLinecap="round"
       />
       <circle
@@ -18,7 +18,7 @@ const IconSearch = ({className}) => {
         cy="8.48526"
         r="5.5"
         transform="rotate(-38.7469 8.48533 8.48526)"
-        stroke="white"
+        stroke="current"
       />
     </svg>
   )

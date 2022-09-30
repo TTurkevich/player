@@ -1,10 +1,18 @@
-import Like from '../../Icons/Like'
+import cn from 'classnames'
 
-const Time = ({ wrapperClassName, className, timeClassName, time }) => {
+import { useTheme } from '../../../context/Theme/ThemeProvider'
+
+import IconLike from '../../IconLike'
+import IconButton from '../../Player/IconButton'
+
+import classes from './index.module.css'
+
+const Time = ({ time }) => {
+  const { theme } = useTheme()
   return (
-    <div className={wrapperClassName}>
-      <Like className={className} />
-      <span className={timeClassName}>{time}</span>
+    <div className={classes.container}>
+      <IconButton Icon={IconLike} />
+      <span className={cn(classes.time, classes[theme])}>{time}</span>
     </div>
   )
 }

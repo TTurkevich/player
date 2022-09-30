@@ -1,0 +1,18 @@
+.album {
+  width: 245px;
+}
+
+.albumLink {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.albumLink.dark {
+  color: #4e4e4e;
+}
+
+.albumLink.light {
+  color: #b1b1b1;
+}

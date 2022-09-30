@@ -1,25 +1,15 @@
 import classes from './index.module.css'
 
-import Album from '../../Track/Album'
+import TitleTrack from '../../Track/TitleTrack'
 import Author from '../../Track/Author'
-import Note from '../../Icons/Note'
+import IconNote from '../../Track/IconNote'
 
 const TrackPlay = ({ title, author }) => {
   return (
     <div className={classes.contain}>
-      <div className={classes.image}>
-        <Note className={classes.icon} />
-      </div>
-      <Author
-        wrapperClassName={classes.author}
-        linkClassName={classes.authorLink}
-        title={author}
-      />
-      <Album
-        wrapperClassName={classes.album}
-        linkClassName={classes.albumLink}
-        title={title}
-      />
+      <IconNote />
+      <Author title={author} />
+      <TitleTrack title={title} />
     </div>
   )
 }

@@ -1,0 +1,38 @@
+.formInput {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #d0cece;  
+  padding: 8px 5px;
+  font-size: 18px;
+  color: #d0cece;
+  margin: 10px 0px;
+}
+
+input::placeholder {
+  font-size: 18px;
+  line-height: 24px;
+  color: #d0cece;
+}
+
+.spanError {
+  color: red;
+  font-size: 10px;
+  padding: 3px;
+  display: none;
+}
+
+input:invalid[focused='true'] {
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+input:invalid[focused='true'] ~ span {
+  display: block;
+}

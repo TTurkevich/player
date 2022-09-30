@@ -10,34 +10,6 @@
   margin-left: 28px;
 }
 
-.dislikeIcon {
-  width: 14px;
-  height: 13px;
-  fill: transparent;
-  stroke: #696969;
-}
-
 .like {
   padding: 5px;
-}
-
-.likeIcon {
-  width: 14px;
-  height: 12px;
-  fill: transparent;
-  stroke: #696969;
-}
-
-.btn {
-  cursor: pointer;
-}
-
-.btnIcon svg path:hover {
-  stroke: #acacac;
-}
-
-.btnIcon:active svg {
-  fill: #696969;
-  stroke: #ffffff;
-  cursor: pointer;
 }

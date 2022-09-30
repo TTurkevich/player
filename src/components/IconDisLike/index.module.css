@@ -1,0 +1,33 @@
+.icon {
+  width: 14px;
+  height: 12px;
+  margin-right: 17px;
+  fill: transparent;
+}
+
+.icon.dark {
+  fill: transparent;
+  stroke: #696969;
+}
+
+.icon.dark:hover {
+  stroke: #acacac;
+}
+
+.icon.dark:active {
+  stroke: #fff;
+  fill: #696969;
+}
+
+.icon.light {
+  stroke: #b1b1b1;
+}
+
+.icon.light:hover {
+  stroke: #707070;
+}
+
+.icon.light:active {
+  stroke: #000;
+  fill: #ad61ff;
+}
