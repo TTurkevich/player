@@ -8,6 +8,7 @@ import Buttons from '../Buttons'
 import TrackPlay from '../TrackPlay'
 
 const Controls = ({
+  id,
   title,
   author,
   isPlaying,
@@ -24,7 +25,7 @@ const Controls = ({
     setLoading(true)
     const timing = setTimeout(() => {
       setLoading(false)
-    }, 5000)
+    }, 3000)
     return () => clearTimeout(timing)
   }, [])
 
@@ -42,7 +43,7 @@ const Controls = ({
       <div className={classes.trackPlay}>
         {loading && <SkeletonTrackPlay />}
         {!loading && <TrackPlay title={title} author={author} />}
-        <LikeDislike />
+        <LikeDislike id={id} />
       </div>
     </div>
   )

@@ -1,9 +1,8 @@
 import classes from './index.module.css'
 
-import Heading from '../../components/Heading'
-import Search from '../../components/Search'
-import TrackTable from '../../components/MainContent/TrackTable'
+import Search from '../../features/controls/Search'
 import Wrapper from '../../components/Wrapper'
+import Favorite from '../../components/Playlists/Favorite'
 
 const MyTracks = () => {
   return (
@@ -11,8 +10,7 @@ const MyTracks = () => {
       {
         <>
           <Search className={classes.searchBlock} />
-          <Heading className={classes.heading} text="Мои треки" />
-          <TrackTable />
+          <Favorite />
         </>
       }
     </Wrapper>

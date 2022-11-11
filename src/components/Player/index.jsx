@@ -1,13 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
-
-import cn from 'classnames'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { useTheme } from '../../context/Theme/ThemeProvider'
 
 import Controls from './Controls'
 import Volume from './Volume'
-import tracks from '../../server/tracks'
 
+import { useInfo } from '../../features/controls/use-info'
+import { selectControls, setId } from '../../features/controls/controls-slice'
+import { shuffle } from '../../features/general-action'
+
+import cn from 'classnames'
 import classes from './index.module.css'
 
 const changeTrackStyling = (duration, trackProgress, theme) => {
@@ -27,28 +30,52 @@ const changeTrackStyling = (duration, trackProgress, theme) => {
   const trackStyling = `
 -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, ${colorStart} ), color-stop(${currentPercentage}, ${colorStop} ))
 `
-
   return trackStyling
 }
 
 const Player = () => {
+  const dispatch = useDispatch()
   const { theme } = useTheme()
-  const [audioTracks, setAudioTracks] = useState(tracks)
+  const controls = useSelector(selectControls)
+  const tracks = useInfo()
+
   const [trackIndex, setTrackIndex] = useState(0)
   const [trackProgress, setTrackProgress] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [activeRepeat, setActiveRepeat] = useState(false)
+  const [sort, setSort] = useState(false)
+  const [volume, setVolume] = useState(0.1)
 
-  const track = audioTracks[trackIndex]
-  const audioRef = useRef(new Audio(track?.url))
+  const { id, name, author, track_file } = tracks[trackIndex]
+
+  if (!tracks) return null
+
+  const audioRef = useRef(new Audio(track_file))
   const { duration } = audioRef.current
-
+  audioRef.current.volume = volume
   const intervalRef = useRef()
   const isReady = useRef(false)
 
   useEffect(() => {
+    //play/pause
+    if (isPlaying) {
+      audioRef.current.play()
+      startTimer()
+    } else {
+      audioRef.current.pause()
+    }
+  }, [isPlaying])
+
+  useEffect(() => {
+    return () => {
+      audioRef.current.pause()
+      clearInterval(intervalRef.current)
+    }
+  }, [controls, sort])
+
+  useEffect(() => {
     audioRef.current.pause()
-    audioRef.current = new Audio(track?.url)
+    audioRef.current = new Audio(track_file)
     setTrackProgress(audioRef.current.currentTime)
 
     if (isPlaying && isReady.current) {
@@ -58,25 +85,7 @@ const Player = () => {
     } else {
       isReady.current = true
     }
-  }, [trackIndex])
-
-  useEffect(() => {
-    return () => {
-      audioRef.current.pause()
-      clearInterval(intervalRef.current)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (isPlaying) {
-      audioRef.current.play()
-      startTimer()
-    } else {
-      audioRef.current.pause()
-    }
-  }, [isPlaying])
-
-  if (!track) return null
+  }, [trackIndex, controls, sort])
 
   const colorTrackBar = changeTrackStyling(duration, trackProgress, theme)
 
@@ -106,14 +115,15 @@ const Player = () => {
 
   const prevTrack = () => {
     if (trackIndex - 1 < 0) {
-      setTrackIndex(audioTracks.length - 1)
+      setTrackIndex(tracks.length - 1)
     } else {
       setTrackIndex(trackIndex - 1)
     }
   }
 
   const nextTrack = () => {
-    if (trackIndex < audioTracks.length - 1) {
+    
+    if (trackIndex < tracks.length - 1) {
       setTrackIndex(trackIndex + 1)
     } else {
       setTrackIndex(0)
@@ -134,13 +144,17 @@ const Player = () => {
   }
 
   const shuffleTracks = () => {
-    const shuffleTracks = Object.assign([], audioTracks)
-    shuffleTracks.sort(() => Math.random() - 0.5)
-    console.log(shuffleTracks)
-
-    setAudioTracks(shuffleTracks)
+    dispatch(setId(''))
+    dispatch(shuffle())
     audioRef.current.currentTime = 0
     setTrackIndex(0)
+
+    sort === true ? setSort(false) : setSort(true)
+  }
+
+  const changeVolume = (value) => {
+    const percent = 100
+    return setVolume(value / percent)
   }
 
   return (
@@ -162,8 +176,9 @@ const Player = () => {
         />
         <div className={classes.playerBlock}>
           <Controls
-            title={track.title}
-            author={track.author}
+            id={id}
+            title={name}
+            author={author}
             isPlaying={isPlaying}
             onPlayPauseClick={setIsPlaying}
             onPrevClick={prevTrack}
@@ -172,7 +187,7 @@ const Player = () => {
             activeRepeat={activeRepeat}
             onShuffleTracks={shuffleTracks}
           />
-          <Volume />
+          <Volume changeVolume={changeVolume} />
         </div>
       </div>
     </div>

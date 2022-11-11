@@ -1,0 +1,44 @@
+.radioForm {
+  display: flex;
+  width: 335px;
+  height: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  gap: 28px;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.radioButton {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.radioButton + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+.radioButton + label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 100%;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.radioButton:checked + label::before {
+  background-image: url('../../../../../public/img/ellipse.png');
+  background-size: 70%;
+}

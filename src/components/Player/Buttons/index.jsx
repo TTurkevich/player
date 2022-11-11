@@ -32,31 +32,31 @@ const Buttons = ({
         buttonClassName={classes.prev}
         Icon={Prev}
         iconClassName={cn(classes.prevIcon, classes[theme])}
-        onChange={onPrevClick}
+        handleClick={onPrevClick}
       />
       <IconButton
         buttonClassName={classes.play}
         Icon={isPlaying ? Pause : Play}
         iconClassName={cn(classes.playIcon, classes[theme])}
-        onChange={() => onPlayPauseClick(isPlaying ? false : true)}
+        handleClick={() => onPlayPauseClick(isPlaying ? false : true)}
       />
       <IconButton
         buttonClassName={classes.next}
         Icon={Next}
         iconClassName={cn(classes.nextIcon, classes[theme])}
-        onChange={onNextClick}
+        handleClick={onNextClick}
       />
       <IconButton
         buttonClassName={repeatClassNames}
         Icon={Repeat}
         iconClassName={cn(classes.repeatIcon, classes[theme])}
-        onChange={onRepeatTrack}
+        handleClick={onRepeatTrack}
       />
       <IconButton
         buttonClassName={classes.shuffle}
         Icon={Shuffle}
         iconClassName={cn(classes.shuffleIcon, classes[theme])}
-        onChange={onShuffleTracks}
+        handleClick={onShuffleTracks}
       />
     </div>
   )

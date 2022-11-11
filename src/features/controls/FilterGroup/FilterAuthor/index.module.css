@@ -1,0 +1,8 @@
+.activeClass {
+  border-color: #ad61ff;
+  color: #ad61ff;
+}
+
+.invisible {
+  display: none;
+}

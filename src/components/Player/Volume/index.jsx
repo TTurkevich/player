@@ -7,7 +7,7 @@ import classes from './index.module.css'
 import VolumeProgress from '../VolumeProgress'
 import VolumeSpeaker from '../../Icons/VolumeSpeaker'
 
-const Volume = () => {
+const Volume = ({ changeVolume }) => {
   const { theme } = useTheme()
   return (
     <div className={classes.volumeBlock}>
@@ -15,7 +15,7 @@ const Volume = () => {
         <div className={classes.image}>
           <VolumeSpeaker className={cn(classes.icon, classes[theme])} />
         </div>
-        <VolumeProgress />
+        <VolumeProgress changeVolume={changeVolume} />
       </div>
     </div>
   )
