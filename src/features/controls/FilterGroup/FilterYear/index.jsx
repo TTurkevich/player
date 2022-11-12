@@ -66,7 +66,7 @@ const FilterYear = ({ visibleModal, checkModal }) => {
   }
 
   const checkVisibleModal = (visibleModal, radioValue) => {
-    if (visibleModal === false) {
+    if (visibleModal !== 'year' || visibleModal === false) {
       console.log('false aut')
       if (radioValue.length === 0) {
         console.log('false', 'aut опции не выбраны')

@@ -11,28 +11,14 @@ export const shuffleList = (arr) => {
 
 export const sortById = (tracks, id) => {
   const index = tracks.findIndex((el) => el.id === id)
-  const playlist = [...tracks.slice(index), ...tracks.slice(0, index)]
-  return playlist
+  return [...tracks.slice(index), ...tracks.slice(0, index)]
 }
 
-export const setAllID = (list) => {
-  const allId = list.map((f) => f.id)
-  return allId
-}
+export const setAllID = (list) => list.map(({ id }) => id)
 
 export const sortYear = (filterYears) => {
-  if (filterYears === 'старые') {
-    return function (a, b) {
-      const c = new Date(a.release_date)
-      const d = new Date(b.release_date)
-      return c - d
-    }
-  }
-  if (filterYears === 'новые') {
-    return function (a, b) {
-      const c = new Date(a.release_date)
-      const d = new Date(b.release_date)
-      return d - c
-    }
-  }
+  if (filterYears === 'старые')
+    return (a, b) => new Date(a.release_date) - new Date(b.release_date)
+  if (filterYears === 'новые')
+    return (a, b) => new Date(b.release_date) - new Date(a.release_date)
 }

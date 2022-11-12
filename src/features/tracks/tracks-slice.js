@@ -1,7 +1,7 @@
+import { createSlice } from '@reduxjs/toolkit'
 import { revertAll, shuffle } from '../general-action'
-import { shuffleList, sortById, sortYear } from '../helpers'
 import { loadTracks } from './tracks-actions'
-const { createSlice } = require('@reduxjs/toolkit')
+import { shuffleList, sortById, sortYear } from '../helpers'
 
 const initialState = {
   status: 'idle',
@@ -62,7 +62,6 @@ export const selectVisibleTracks = (
   const filtersGenres = Object.entries(filterGenres)
 
   const tracks = state.tracks.list
-
     ?.filter(
       (track) =>
         filtersAuthors.every(([key, values]) => values.includes(track[key])) &&

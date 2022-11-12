@@ -7,21 +7,17 @@ import FilterYear from './FilterYear'
 import classes from './index.module.css'
 
 const FilterGroup = ({ className }) => {
-  const [visibleModal, setVisibleModal] = useState({
-    author: false,
-    genre: false,
-    year: false,
-  })
+  const [visibleModal, setVisibleModal] = useState(false)
   const checkModalAuthor = () => {
-    setVisibleModal({ author: true, genre: false, year: false })
+    setVisibleModal('author')
     return visibleModal
   }
   const checkModalGenre = () => {
-    setVisibleModal({ author: false, genre: true, year: false })
+    setVisibleModal('genre')
     return visibleModal
   }
   const checkModalYear = () => {
-    setVisibleModal({ author: false, genre: false, year: true })
+    setVisibleModal('year')
     return visibleModal
   }
 
@@ -32,19 +28,9 @@ const FilterGroup = ({ className }) => {
   return (
     <div className={cn(classes.filter, className)}>
       <div className={classes.title}>Искать по:</div>
-      <FilterAuthor
-        visibleModal={visibleModal.author}
-        checkModal={checkModalAuthor}
-      />
-      <FilterGenre
-        visibleModal={visibleModal.genre}
-        checkModal={checkModalGenre}
-      />
-      <FilterYear
-        visibleModal={visibleModal.year}
-        checkModal={checkModalYear}
-        //is
-      />
+      <FilterAuthor visibleModal={visibleModal} checkModal={checkModalAuthor} />
+      <FilterGenre visibleModal={visibleModal} checkModal={checkModalGenre} />
+      <FilterYear visibleModal={visibleModal} checkModal={checkModalYear} />
     </div>
   )
 }

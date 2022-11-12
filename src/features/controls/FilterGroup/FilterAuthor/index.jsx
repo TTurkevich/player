@@ -88,7 +88,7 @@ const FilterAuthor = ({ visibleModal, checkModal }) => {
   }
 
   const checkVisibleModal = (visibleModal, selectedValue) => {
-    if (visibleModal === false) {
+    if (visibleModal !== 'author' || visibleModal === false) {
       console.log('false aut')
       if (selectedValue.length === 0) {
         console.log('false', 'aut опции не выбраны')

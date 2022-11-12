@@ -22,11 +22,9 @@ const Favorite = () => {
         <Playlist>
           {error && <h2>Не получена база треков...</h2>}
           {loading && <SkeletonPlaylist />}
-          {loading && favorite.length === 0 && (
-            <p>У вас еще нет любимых треков</p>
-          )}
+          {loading && favorite.length && <p>У вас еще нет любимых треков</p>}
           {!loading &&
-            favorite.length > 0 &&
+            favorite.length &&
             favorite.map((track, index) => (
               <Track
                 key={index}

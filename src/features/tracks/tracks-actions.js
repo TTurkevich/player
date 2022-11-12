@@ -1,4 +1,4 @@
-const { createAsyncThunk } = require('@reduxjs/toolkit')
+import { createAsyncThunk } from '@reduxjs/toolkit'
 
 export const loadTracks = createAsyncThunk(
   'track/all',

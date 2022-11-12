@@ -1,6 +1,5 @@
+import { createSlice } from '@reduxjs/toolkit'
 import { revertAll } from '../general-action'
-
-const { createSlice } = require('@reduxjs/toolkit')
 
 const initialState = {
   search: '',

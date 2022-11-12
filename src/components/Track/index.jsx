@@ -39,7 +39,7 @@ const Track = ({ id, title, album, author, time, clarification }) => {
         <Author title={author} />
         <Album title={album} />
       </div>
-      <Time time={time} handleClick={add} active={active} />
+      <Time time={time} onClick={add} active={active} />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-const { createSlice } = require('@reduxjs/toolkit')
+import { createSlice } from '@reduxjs/toolkit'
 import { revertAll, shuffle } from '../general-action'
 import { setAllID, shuffleList, sortById } from '../helpers'
 import { loadFavorite } from './favorite-actions'

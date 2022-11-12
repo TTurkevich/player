@@ -122,7 +122,6 @@ const Player = () => {
   }
 
   const nextTrack = () => {
-    
     if (trackIndex < tracks.length - 1) {
       setTrackIndex(trackIndex + 1)
     } else {
@@ -149,7 +148,7 @@ const Player = () => {
     audioRef.current.currentTime = 0
     setTrackIndex(0)
 
-    sort === true ? setSort(false) : setSort(true)
+    setSort(!sort)
   }
 
   const changeVolume = (value) => {

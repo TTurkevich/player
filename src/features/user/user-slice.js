@@ -1,4 +1,4 @@
-const { createSlice } = require('@reduxjs/toolkit')
+import { createSlice } from '@reduxjs/toolkit'
 import { KJUR } from 'jsrsasign'
 import { revertAll } from '../general-action'
 import {

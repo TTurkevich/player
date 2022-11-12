@@ -88,7 +88,7 @@ const FilterGenre = ({ visibleModal, checkModal }) => {
   }
 
   const checkVisibleModal = (visibleModal, selectedValue) => {
-    if (visibleModal === false) {
+    if (visibleModal !== 'genre' || visibleModal === false) {
       console.log('false gen')
       if (selectedValue.length === 0) {
         console.log('false', 'gen опции не выбраны')

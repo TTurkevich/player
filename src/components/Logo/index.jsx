@@ -14,7 +14,6 @@ const Logo = ({ className }) => {
   return (
     <div className={cn(className, classes.logo)}>
       <a href="" onClick={cleanUp}>
-        {' '}
         <LogoIcon className={cn(classes.image, classes[theme])} />
       </a>
     </div>

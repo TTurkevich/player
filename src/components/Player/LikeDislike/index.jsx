@@ -20,7 +20,7 @@ const LikeDislike = ({ id }) => {
   const favorite = useSelector(selectFavoriteId)
 
   useEffect(() => {
-    favorite.includes(id) ? setActive(true) : setActive(false)
+    setActive(favorite.includes(id))
   }, [favorite])
 
   const add = () => {
@@ -37,12 +37,12 @@ const LikeDislike = ({ id }) => {
         buttonClassName={classes.like}
         Icon={IconLike}
         active={active}
-        handleClick={add}
+        onClick={add}
       />
       <IconButton
         buttonClassName={classes.dislike}
         Icon={IconDisLike}
-        handleClick={remove}
+        onClick={remove}
       />
     </div>
   )
