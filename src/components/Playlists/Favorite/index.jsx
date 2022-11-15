@@ -25,16 +25,18 @@ const Favorite = () => {
           {loading && favorite.length && <p>У вас еще нет любимых треков</p>}
           {!loading &&
             favorite.length &&
-            favorite.map((track, index) => (
-              <Track
-                key={index}
-                id={track.id}
-                title={track.name}
-                album={track.album}
-                author={track.author}
-                time={track.duration_in_seconds}
-              />
-            ))}
+            favorite.map(
+              ({ id, name, album, author, duration_in_seconds }, index) => (
+                <Track
+                  key={index}
+                  id={id}
+                  title={name}
+                  album={album}
+                  author={author}
+                  time={duration_in_seconds}
+                />
+              )
+            )}
         </Playlist>
       </TrackTable>
     </>

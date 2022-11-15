@@ -1,8 +1,7 @@
 import cn from 'classnames'
 import { useState, useEffect } from 'react'
-import FilterAuthor from './FilterAuthor'
-import FilterGenre from './FilterGenre'
-import FilterYear from './FilterYear'
+
+import FilterSelect from './FilterSelect'
 
 import classes from './index.module.css'
 
@@ -28,9 +27,21 @@ const FilterGroup = ({ className }) => {
   return (
     <div className={cn(classes.filter, className)}>
       <div className={classes.title}>Искать по:</div>
-      <FilterAuthor visibleModal={visibleModal} checkModal={checkModalAuthor} />
-      <FilterGenre visibleModal={visibleModal} checkModal={checkModalGenre} />
-      <FilterYear visibleModal={visibleModal} checkModal={checkModalYear} />
+      <FilterSelect
+        name="author"
+        visibleModal={visibleModal}
+        checkModal={checkModalAuthor}
+      />
+      <FilterSelect
+        name="genre"
+        visibleModal={visibleModal}
+        checkModal={checkModalGenre}
+      />
+      <FilterSelect
+        name="year"
+        visibleModal={visibleModal}
+        checkModal={checkModalYear}
+      />
     </div>
   )
 }

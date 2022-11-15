@@ -31,16 +31,18 @@ const MainPlaylist = () => {
           {error && <h2>Не получена база треков...</h2>}
           {status === 'loading' && <SkeletonPlaylist />}
           {status === 'received' &&
-            tracks.map((track, index) => (
-              <Track
-                key={index}
-                id={track.id}
-                title={track.name}
-                album={track.album}
-                author={track.author}
-                time={track.duration_in_seconds}
-              />
-            ))}
+            tracks.map(
+              ({ id, name, album, author, duration_in_seconds }, index) => (
+                <Track
+                  key={index}
+                  id={id}
+                  title={name}
+                  album={album}
+                  author={author}
+                  time={duration_in_seconds}
+                />
+              )
+            )}
         </Playlist>
       </TrackTable>
     </>

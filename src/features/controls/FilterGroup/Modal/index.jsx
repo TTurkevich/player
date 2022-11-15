@@ -16,7 +16,7 @@ const Modal = ({
 }) => {
   const { theme } = useTheme()
 
-  return !isVisible ? null : (
+  return isVisible ? (
     <div className={cn(classes.modal, classes[theme], modalClassName)}>
       {isRadio ? (
         <RadioButton handleClickOption={handleClickOption} />
@@ -35,7 +35,7 @@ const Modal = ({
         </ListGroup>
       )}
     </div>
-  )
+  ) : null
 }
 
 export default Modal

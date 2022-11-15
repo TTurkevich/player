@@ -20,7 +20,7 @@ const Track = ({ id, title, album, author, time, clarification }) => {
   const favorite = useSelector(selectFavoriteId)
 
   useEffect(() => {
-    return setActive(favorite.includes(id) ? true : false)
+    return setActive(!!favorite.includes(id))
   }, [favorite])
 
   const add = () => {
