@@ -4,7 +4,7 @@ import { revertAll } from '../general-action'
 import {
   userLogin,
   userRegister,
-  userToken,
+  userTokens,
   refreshToken,
 } from './user-actions'
 
@@ -37,13 +37,13 @@ const userSlice = createSlice({
       })
       .addCase(userLogin.rejected, (state, action) => {
         state.loading = false
-        state.error = action.payload || action.meta.error
+        state.error = action.payload
       })
       .addCase(userLogin.fulfilled, (state, action) => {
         state.loading = false
         state.userInfo = action.payload
+        state.success = true
       })
-
       // register user
       .addCase(userRegister.pending, (state) => {
         state.loading = true
@@ -51,22 +51,23 @@ const userSlice = createSlice({
       })
       .addCase(userRegister.rejected, (state, action) => {
         state.loading = false
-        state.error = action.payload || action.meta.error
+        state.error = action.payload
       })
       .addCase(userRegister.fulfilled, (state) => {
         state.loading = false
         state.success = true
+        state.error = null
       })
       //tokens
-      .addCase(userToken.pending, (state) => {
+      .addCase(userTokens.pending, (state) => {
         state.loading = true
         state.error = null
       })
-      .addCase(userToken.rejected, (state, action) => {
+      .addCase(userTokens.rejected, (state, action) => {
         state.loading = false
-        state.error = action.payload || action.meta.error
+        state.error = action.payload
       })
-      .addCase(userToken.fulfilled, (state, action) => {
+      .addCase(userTokens.fulfilled, (state, action) => {
         state.loading = false
         state.success = true
         state.userToken = action.payload
@@ -92,7 +93,7 @@ const userSlice = createSlice({
       })
       .addCase(refreshToken.rejected, (state, action) => {
         state.loading = false
-        state.error = action.payload || action.meta.error
+        state.error = action.payload
       })
       .addCase(refreshToken.fulfilled, (state, action) => {
         state.loading = false

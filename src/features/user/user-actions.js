@@ -13,23 +13,26 @@ export const userRegister = createAsyncThunk(
         },
         skipAuth: true,
       }
-
-      return await apiClient.post(
+      const response = await apiClient.post(
         api.USER_SIGNUP,
         { username, email, password },
         config
       )
-    } catch (error) {
-      if (
-        error.response &&
-        (error.response.data.email || error.response.data.username)
-      ) {
-        return rejectWithValue(
-          error.response.data.email || error.response.data.username
-        )
-      } else {
-        return rejectWithValue(error.message)
+      if (response.status !== 201) {
+        const { data } = response
+        const { username, email } = data
+
+        if (!username) {
+          throw new Error(email[0])
+        }
+        if (!email) {
+          throw new Error(username[0])
+        } else {
+          throw new Error('Пользователь с такими данными уже существует')
+        }
       }
+    } catch (error) {
+      return rejectWithValue(error.message)
     }
   }
 )
@@ -48,24 +51,27 @@ export const userLogin = createAsyncThunk(
         skipAuth: true,
       }
 
-      const { data } = await apiClient.post(
+      const response = await apiClient.post(
         api.USER_LOGIN,
         { email, password },
         config
       )
+      if (response.statusText !== 'OK') {
+        const { data } = response
+        const { detail } = data
+
+        throw new Error(detail)
+      }
+      const { data } = await response
 
       return data
     } catch (error) {
-      if (error.response && error.response.data.non_field_errors) {
-        return rejectWithValue(error.response.data.non_field_errors)
-      } else {
-        return rejectWithValue(error.message)
-      }
+      return rejectWithValue(error.message)
     }
   }
 )
 
-export const userToken = createAsyncThunk(
+export const userTokens = createAsyncThunk(
   'user/token',
   async (
     { email, password },
@@ -78,19 +84,18 @@ export const userToken = createAsyncThunk(
         },
         skipAuth: true,
       }
-
-      const { data } = await apiClient.post(
+      const response = await apiClient.post(
         api.USER_TOKEN,
         { email, password },
         config
       )
+      if (response.statusText !== 'OK') {
+        throw new Error('Что-то пошло не так, токены авторизации не получены')
+      }
+      const { data } = await response
       return data
     } catch (error) {
-      if (error.response && error.response.data) {
-        return rejectWithValue(error.response.data)
-      } else {
-        return rejectWithValue(error.message)
-      }
+      return rejectWithValue(error.message)
     }
   }
 )
@@ -107,25 +112,18 @@ export const refreshToken = createAsyncThunk(
         skipAuth: true,
       }
 
-      console.log(user.userToken.refresh)
-      console.log('refresh---')
-
-      const { data } = await apiClient.post(
+      const response = await apiClient.post(
         api.USER_REFRESH_TOKEN,
         { refresh: user.userToken.refresh },
         config
       )
-      console.log(data)
-      console.log('refresh++++')
-      localStorage.setItem('userToken', data.access)
-      console.log('новый токен', data.access)
+      if (response.statusText !== 'OK') {
+        throw new Error('Что-то пошло не так, токены авторизации не получены')
+      }
+      const { data } = await response
       return data.access
     } catch (error) {
-      if (error.response && error.response.data) {
-        return rejectWithValue(error.response.data)
-      } else {
-        return rejectWithValue(error.message)
-      }
+      return rejectWithValue(error.message)
     }
   }
 )

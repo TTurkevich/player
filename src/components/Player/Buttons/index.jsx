@@ -20,6 +20,7 @@ const Buttons = ({
   onRepeatTrack,
   activeRepeat,
   onShuffleTracks,
+  disabled,
 }) => {
   const { theme } = useTheme()
   const repeatClassNames = cn(classes.repeat, {
@@ -33,30 +34,35 @@ const Buttons = ({
         Icon={Prev}
         iconClassName={cn(classes.prevIcon, classes[theme])}
         onClick={onPrevClick}
+        disabled={disabled}
       />
       <IconButton
         buttonClassName={classes.play}
         Icon={isPlaying ? Pause : Play}
         iconClassName={cn(classes.playIcon, classes[theme])}
-        onClick={() => onPlayPauseClick(isPlaying ? false : true)}
+        onClick={() => onPlayPauseClick()}
+        disabled={disabled}
       />
       <IconButton
         buttonClassName={classes.next}
         Icon={Next}
         iconClassName={cn(classes.nextIcon, classes[theme])}
         onClick={onNextClick}
+        disabled={disabled}
       />
       <IconButton
         buttonClassName={repeatClassNames}
         Icon={Repeat}
         iconClassName={cn(classes.repeatIcon, classes[theme])}
         onClick={onRepeatTrack}
+        disabled={disabled}
       />
       <IconButton
         buttonClassName={classes.shuffle}
         Icon={Shuffle}
         iconClassName={cn(classes.shuffleIcon, classes[theme])}
         onClick={onShuffleTracks}
+        disabled={disabled}
       />
     </div>
   )

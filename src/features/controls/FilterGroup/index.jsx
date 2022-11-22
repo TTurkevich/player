@@ -20,9 +20,7 @@ const FilterGroup = ({ className }) => {
     return visibleModal
   }
 
-  useEffect(() => {
-    console.log('FG', visibleModal)
-  }, [visibleModal])
+  useEffect(() => {}, [visibleModal])
 
   return (
     <div className={cn(classes.filter, className)}>

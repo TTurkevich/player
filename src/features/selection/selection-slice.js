@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSelector, createSlice } from '@reduxjs/toolkit'
+import { selectCurrentId, selectSearch } from '../controls/controls-slice'
 import { revertAll, shuffle } from '../general-action'
 import { shuffleList, sortById } from '../helpers'
 import { loadSelectionById } from './selection-actions'
@@ -43,10 +44,14 @@ export const selectionReducer = selectionSlice.reducer
 
 //selectors
 export const selectAllSelections = (state) => state.selection
+export const selectSelection = (state) => state.selection.currentSelection
 
-export const selectCurrentSelection = (state, { search = '', id = '' }) => {
-  const selection = state?.selection?.currentSelection.filter((s) =>
-    s.name.toLowerCase().includes(search.toLowerCase())
-  )
-  return sortById(selection, id)
-}
+export const selectCurrentSelection = createSelector(
+  [selectSearch, selectSelection, selectCurrentId],
+  (search, selection, id) => {
+    const playlist = selection?.filter((s) =>
+      s.name.toLowerCase().includes(search.toLowerCase())
+    )
+    return sortById(playlist, id)
+  }
+)

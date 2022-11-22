@@ -18,6 +18,7 @@ const Controls = ({
   onRepeatTrack,
   activeRepeat,
   onShuffleTracks,
+  disabled,
 }) => {
   const [loading, setLoading] = useState(false)
 
@@ -39,11 +40,12 @@ const Controls = ({
         onRepeatTrack={onRepeatTrack}
         activeRepeat={activeRepeat}
         onShuffleTracks={onShuffleTracks}
+        disabled={disabled}
       />
       <div className={classes.trackPlay}>
         {loading && <SkeletonTrackPlay />}
         {!loading && <TrackPlay title={title} author={author} />}
-        <LikeDislike id={id} />
+        <LikeDislike id={id} disabled={disabled} />
       </div>
     </div>
   )

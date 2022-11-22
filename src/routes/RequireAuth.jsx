@@ -7,7 +7,6 @@ const ProtectedRoute = ({ children }) => {
   const location = useLocation()
 
   if (!userToken) {
-    console.log('нет пользователя')
     return <Navigate to="/login" state={{ from: location }} />
   } else {
     return children

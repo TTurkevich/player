@@ -27,7 +27,7 @@ const SignUp = () => {
     confirmPassword: '',
   })
 
-  const { loading, userInfo, error, success } = useSelector(selectUser)
+  const { loading, error, success } = useSelector(selectUser)
 
   SIGNUP_INPUTS[3].pattern = `${values.password}`
 
@@ -41,10 +41,12 @@ const SignUp = () => {
   }, [enabled, invalidInput, validPassword])
 
   useEffect(() => {
-    if (success) navigate('/login')
+    if (error) disabled(true)
+  }, [error, enabled])
 
-    if (userInfo) navigate('/')
-  }, [navigate, userInfo, success])
+  useEffect(() => {
+    if (success) navigate('/login')
+  }, [navigate, success])
 
   useEffect(() => {
     if (invalidInput) {

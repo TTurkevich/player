@@ -6,9 +6,12 @@ import Time from './Time'
 import Title from './Title'
 
 import { usePlayer } from '../../features/player/use-player'
-import { addFavoriteById } from '../../features/favorite/favorite-actions'
+import {
+  addFavoriteById,
+  loadTrackById,
+} from '../../features/favorite/favorite-actions'
 import { useEffect, useState } from 'react'
-import { selectFavoriteId } from '../../features/favorite/favorite-slice'
+import { selectFavoriteTracks } from '../../features/favorite/favorite-slice'
 
 import classes from './index.module.css'
 
@@ -17,15 +20,18 @@ const Track = ({ id, title, album, author, time, clarification }) => {
   const handleClick = usePlayer()
   const [active, setActive] = useState(false)
 
-  const favorite = useSelector(selectFavoriteId)
+  const favorite = useSelector(selectFavoriteTracks)
 
   useEffect(() => {
-    return setActive(!!favorite.includes(id))
-  }, [favorite])
+    if (favorite.length !== 0) {
+      const search = favorite.some((track) => track.id === id)
+      setActive(search)
+    } else setActive(false)
+  }, [favorite, id, active])
 
   const add = () => {
-    dispatch(addFavoriteById(Number(id)))
-    setActive(true)
+    dispatch(addFavoriteById(id))
+    dispatch(loadTrackById(id))
   }
 
   return (

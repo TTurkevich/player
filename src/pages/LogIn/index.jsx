@@ -12,7 +12,8 @@ import FormInput from '../../components/Authorization/FormInput'
 import Button from '../../components/Authorization/Button'
 import LogoIcon from '../../components/Icons/LogoIcon'
 import { selectUser, clearError } from '../../features/user/user-slice'
-import { userLogin, userToken } from '../../features/user/user-actions'
+import { userLogin, userTokens } from '../../features/user/user-actions'
+import { revertAll } from '../../features/general-action'
 
 import classes from './index.module.css'
 
@@ -27,7 +28,7 @@ const LogIn = () => {
     password: '',
   })
 
-  const { loading, userInfo, error, success } = useSelector(selectUser)
+  const { loading, userInfo, userToken, error } = useSelector(selectUser)
 
   const invalidInput = Object.values(values).some((item) => item === '')
 
@@ -44,14 +45,18 @@ const LogIn = () => {
   }, [dispatch, invalidInput])
 
   useEffect(() => {
+    if (error) return disabled(true)
+  }, [error, enabled])
+
+  useEffect(() => {
     if (userInfo) {
-      dispatch(userToken(values))
+      dispatch(userTokens(values))
     }
   }, [dispatch, userInfo])
 
   useEffect(() => {
-    if (success) navigate('/')
-  }, [navigate, success])
+    if (userToken) navigate('/')
+  }, [navigate, userToken])
 
   const onChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value })
@@ -60,6 +65,10 @@ const LogIn = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     dispatch(userLogin(values))
+  }
+
+  const logOut = () => {
+    dispatch(revertAll())
   }
 
   return (
@@ -82,7 +91,7 @@ const LogIn = () => {
           <div className={classes.alert}>{error}</div>
         </div>
       )}
-      <Button id="btnSignUp" className={classes.signUp}>
+      <Button id="btnSignUp" className={classes.signUp} onClick={logOut}>
         <NavLink className={cn(classes.link, classes.black)} to={'/signUp'}>
           Зарегистрироваться
         </NavLink>

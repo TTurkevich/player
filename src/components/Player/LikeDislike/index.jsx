@@ -9,27 +9,34 @@ import classes from './index.module.css'
 
 import {
   addFavoriteById,
+  loadTrackById,
   removeFavoriteById,
 } from '../../../features/favorite/favorite-actions'
-import { selectFavoriteId } from '../../../features/favorite/favorite-slice'
+import {
+  deleteTrackById,
+  selectFavoriteTracks,
+} from '../../../features/favorite/favorite-slice'
 
-const LikeDislike = ({ id }) => {
+const LikeDislike = ({ id, disabled }) => {
   const dispatch = useDispatch()
   const [active, setActive] = useState(false)
 
-  const favorite = useSelector(selectFavoriteId)
+  const favorite = useSelector(selectFavoriteTracks)
 
   useEffect(() => {
-    setActive(favorite.includes(id))
-  }, [favorite])
+    if (favorite.length !== 0) {
+      const search = favorite.some((track) => track.id === id)
+      setActive(search)
+    } else setActive(false)
+  }, [favorite, id, active])
 
   const add = () => {
-    dispatch(addFavoriteById(Number(id)))
-    setActive(true)
+    dispatch(addFavoriteById(id))
+    dispatch(loadTrackById(id))
   }
   const remove = () => {
-    dispatch(removeFavoriteById(Number(id)))
-    setActive(false)
+    dispatch(removeFavoriteById(id))
+    dispatch(deleteTrackById(id))
   }
   return (
     <div className={classes.likeDis}>
@@ -38,11 +45,13 @@ const LikeDislike = ({ id }) => {
         Icon={IconLike}
         active={active}
         onClick={add}
+        disabled={disabled}
       />
       <IconButton
         buttonClassName={classes.dislike}
         Icon={IconDisLike}
         onClick={remove}
+        disabled={disabled}
       />
     </div>
   )

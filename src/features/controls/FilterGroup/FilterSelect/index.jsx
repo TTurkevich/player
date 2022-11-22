@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
+  selectSearch,
   setFilterAuthors,
   setFilterGenres,
   setFilterYears,
@@ -30,6 +31,8 @@ const FilterSelect = ({ name, visibleModal, checkModal }) => {
   const [counter, setCounter] = useState(0)
 
   const tracks = useSelector(selectAllTracks)
+  const search = useSelector(selectSearch)
+
   const options = optionsFilter(tracks, name)
   const filters = {
     [name]: selectedValue,
@@ -39,15 +42,11 @@ const FilterSelect = ({ name, visibleModal, checkModal }) => {
     if (name !== 'year') setCounter(options.length - selectedValue.length)
 
     if (!selectedValue.length) {
-      console.log('filter true опции не выбраны')
       state.active
         ? dispatchButton(openCloseFilter(''))
         : dispatchButton(openCloseFilter(classes.activeClass))
     }
     if (selectedValue.length && state.active === true) {
-      console.log(
-        'filter true кнопка активна и выбраны опции; оставляем активный класс, прячем модалку'
-      )
       const modalClassName =
         state.modalClassName === classes.invisible ? '' : classes.invisible
       dispatchButton(
@@ -74,13 +73,10 @@ const FilterSelect = ({ name, visibleModal, checkModal }) => {
 
   const checkVisibleModal = (visibleModal, selectedValue) => {
     if (visibleModal !== name || visibleModal === false) {
-      console.log('false filter')
       if (!selectedValue.length) {
-        console.log('false', 'filter опции не выбраны')
         dispatchButton(modalVisible(''))
       }
       if (selectedValue.length) {
-        console.log('false', 'filter опции выбраны')
         dispatchButton(
           modalInvisible({
             className: classes.activeClass,
@@ -92,8 +88,10 @@ const FilterSelect = ({ name, visibleModal, checkModal }) => {
   }
 
   useEffect(() => {
-    return setCounter(options.length - selectedValue.length)
-  }, [selectedValue, counter])
+    const difference = options.length - selectedValue.length
+    if (difference === 0 || difference < 0) return setCounter(null)
+    else return setCounter(difference)
+  }, [selectedValue, counter, search])
 
   useEffect(() => {
     checkVisibleModal(visibleModal, selectedValue)
@@ -105,8 +103,7 @@ const FilterSelect = ({ name, visibleModal, checkModal }) => {
     if (name === 'genre')
       dispatch(setFilterGenres(selectedValue.length ? filters : {}))
     if (name === 'year') dispatch(setFilterYears(selectedValue))
-    console.log('filters', filters)
-  }, [filters, selectedValue])
+  }, [selectedValue, search])
 
   return (
     <Filter

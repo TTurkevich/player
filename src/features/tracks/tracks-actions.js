@@ -4,14 +4,15 @@ export const loadTracks = createAsyncThunk(
   'track/all',
   async (_, { extra: { apiClient, api }, rejectWithValue }) => {
     try {
-      const data = await apiClient.get(api.ALL_TRACKS)
+      const response = await apiClient.get(api.ALL_TRACKS)
+      if (response.statusText !== 'OK') {
+        throw new Error('Что-то пошло не так')
+      }
+      const { data } = await response
+
       return data
     } catch (error) {
-      if (error.response && error.response.data) {
-        return rejectWithValue(error.response.data)
-      } else {
-        return rejectWithValue(error.message)
-      }
+      return rejectWithValue(error.message)
     }
   }
 )

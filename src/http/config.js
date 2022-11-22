@@ -8,6 +8,7 @@ export const USER_REFRESH_TOKEN = 'user/token/refresh/'
 
 //all tracks //get
 export const ALL_TRACKS = 'catalog/track/all/'
+export const searchTrackByID = (id) => `catalog/track/${id}/`
 
 //selections //get
 export const SELECTION = 'catalog/selection/'

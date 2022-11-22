@@ -4,3 +4,6 @@
   border: none;
 }
 
+.btn:disabled:hover {
+  cursor: not-allowed;
+}
