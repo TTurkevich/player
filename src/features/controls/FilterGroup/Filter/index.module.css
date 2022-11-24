@@ -1,0 +1,23 @@
+.containerBtn {
+  display: flex;
+}
+
+.containerModal {
+  display: flex;
+}
+
+.circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 100px;
+  background-color: #ad61ff;
+  color: #fff;
+  position: absolute;
+  z-index: 5;
+  text-align: center;
+  bottom: 19px;
+  left: 124px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

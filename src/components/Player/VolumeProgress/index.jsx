@@ -22,7 +22,7 @@ const changeProgress = (width, volumeProgress, theme) => {
   return barStyling
 }
 
-const VolumeProgress = () => {
+const VolumeProgress = ({ changeVolume }) => {
   const { theme } = useTheme()
   const [volumeProgress, setVolumeProgress] = useState(10)
   const divProgress = useRef()
@@ -31,6 +31,8 @@ const VolumeProgress = () => {
 
   const onScrub = (value) => {
     setVolumeProgress(value)
+    changeVolume(value)
+    return setVolumeProgress
   }
 
   const colorProgress = changeProgress(width, volumeProgress, theme)
@@ -47,7 +49,6 @@ const VolumeProgress = () => {
       min="0"
       max="100"
       value={volumeProgress}
-      volume={1.0}
       onChange={(e) => onScrub(e.target.value)}
     ></input>
   )

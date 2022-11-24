@@ -1,37 +1,34 @@
 import { useState, useEffect } from 'react'
-import { Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import cn from 'classnames'
 
-import { LOGIN_INPUTS } from '../../server/AUTH_Form'
-
 import { useTheme } from '../../context/Theme/ThemeProvider'
-import useAuthContext from '../../Auth/useAuthContext'
 
+import { LOGIN_INPUTS } from '../../data/AUTH_FORM'
 import Form from '../../components/Authorization/Form'
 import FormInput from '../../components/Authorization/FormInput'
 import Button from '../../components/Authorization/Button'
 import LogoIcon from '../../components/Icons/LogoIcon'
+import { selectUser, clearError } from '../../features/user/user-slice'
+import { userLogin, userTokens } from '../../features/user/user-actions'
+import { revertAll } from '../../features/general-action'
 
 import classes from './index.module.css'
 
 const LogIn = () => {
+  const dispatch = useDispatch()
   const { theme } = useTheme()
-  const { auth, login } = useAuthContext()
   const navigate = useNavigate()
-  const location = useLocation()
   const [enabled, disabled] = useState(true)
-
   const [values, setValues] = useState({
-    userName: '',
+    username: '',
+    email: '',
     password: '',
   })
 
-  if (auth) {
-    return <Navigate to="/" replace={true} />
-  }
-
-  const fromPage = location.state?.from?.pathname ?? '/'
+  const { loading, userInfo, userToken, error } = useSelector(selectUser)
 
   const invalidInput = Object.values(values).some((item) => item === '')
 
@@ -41,19 +38,37 @@ const LogIn = () => {
     }
   }, [enabled, invalidInput])
 
+  useEffect(() => {
+    if (invalidInput) {
+      dispatch(clearError())
+    }
+  }, [dispatch, invalidInput])
+
+  useEffect(() => {
+    if (error) return disabled(true)
+  }, [error, enabled])
+
+  useEffect(() => {
+    if (userInfo) {
+      dispatch(userTokens(values))
+    }
+  }, [dispatch, userInfo])
+
+  useEffect(() => {
+    if (userToken) navigate('/')
+  }, [navigate, userToken])
+
   const onChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const failure = () => {
-      console.log('пользователь не найден')
-    }
-    const success = () => {
-      navigate(fromPage, { replace: true })
-    }
-    login(values.userName, values.password, success, failure)
+    dispatch(userLogin(values))
+  }
+
+  const logOut = () => {
+    dispatch(revertAll())
   }
 
   return (
@@ -69,9 +84,14 @@ const LogIn = () => {
       ))}
 
       <Button disabled={enabled} id="btnEnter" className={classes.logIn}>
-        Войти
+        {loading ? '...loading' : 'Войти'}
       </Button>
-      <Button id="btnSignUp" className={classes.signUp}>
+      {error && (
+        <div className={classes.message}>
+          <div className={classes.alert}>{error}</div>
+        </div>
+      )}
+      <Button id="btnSignUp" className={classes.signUp} onClick={logOut}>
         <NavLink className={cn(classes.link, classes.black)} to={'/signUp'}>
           Зарегистрироваться
         </NavLink>

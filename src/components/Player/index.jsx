@@ -1,71 +1,35 @@
 import { useState, useEffect, useRef } from 'react'
-
-import cn from 'classnames'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { useTheme } from '../../context/Theme/ThemeProvider'
 
 import Controls from './Controls'
 import Volume from './Volume'
-import tracks from '../../server/tracks'
 
+import { useInfo } from '../../features/controls/use-info'
+import { selectControls, setId } from '../../features/controls/controls-slice'
+import { shuffle } from '../../features/general-action'
+
+import cn from 'classnames'
 import classes from './index.module.css'
-
-const changeTrackStyling = (duration, trackProgress, theme) => {
-  let colorStart, colorStop
-
-  if (theme === 'dark') {
-    colorStart = '#AD61FF'
-    colorStop = '#2e2e2e'
-  } else {
-    colorStart = '#AD61FF'
-    colorStop = '#d9d9d9'
-  }
-  const currentPercentage = duration
-    ? `${(trackProgress / duration) * 100}%`
-    : '0%'
-
-  const trackStyling = `
--webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, ${colorStart} ), color-stop(${currentPercentage}, ${colorStop} ))
-`
-
-  return trackStyling
-}
+import {
+  setTrackIndex,
+  selectPlayer,
+  setRepeat,
+  setIsPlaying,
+  setSort,
+  setCurrentTrack,
+} from '../../features/player/player-slice'
+import { changeTrackStyling, setTrack } from './helpers'
 
 const Player = () => {
+  const dispatch = useDispatch()
   const { theme } = useTheme()
-  const [audioTracks, setAudioTracks] = useState(tracks)
-  const [trackIndex, setTrackIndex] = useState(0)
   const [trackProgress, setTrackProgress] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [activeRepeat, setActiveRepeat] = useState(false)
+  const [volume, setVolume] = useState(0.1)
 
-  const track = audioTracks[trackIndex]
-  const audioRef = useRef(new Audio(track?.url))
-  const { duration } = audioRef.current
-
-  const intervalRef = useRef()
-  const isReady = useRef(false)
-
-  useEffect(() => {
-    audioRef.current.pause()
-    audioRef.current = new Audio(track?.url)
-    setTrackProgress(audioRef.current.currentTime)
-
-    if (isPlaying && isReady.current) {
-      audioRef.current.play()
-      setIsPlaying(true)
-      startTimer()
-    } else {
-      isReady.current = true
-    }
-  }, [trackIndex])
-
-  useEffect(() => {
-    return () => {
-      audioRef.current.pause()
-      clearInterval(intervalRef.current)
-    }
-  }, [])
+  const controls = useSelector(selectControls)
+  const { isPlaying, trackIndex, repeat, sort } = useSelector(selectPlayer)
 
   useEffect(() => {
     if (isPlaying) {
@@ -76,7 +40,51 @@ const Player = () => {
     }
   }, [isPlaying])
 
-  if (!track) return null
+  useEffect(() => {
+    return () => {
+      audioRef.current.pause()
+      dispatch(setIsPlaying(false))
+      clearInterval(intervalRef.current)
+    }
+  }, [])
+
+  const tracks = useInfo()
+
+  const { id, name, author, track_file } = setTrack(tracks, trackIndex)
+
+  const audioRef = useRef(new Audio(track_file))
+  audioRef.current.loop = repeat
+  audioRef.current.volume = volume
+  const { duration } = audioRef.current
+  const intervalRef = useRef()
+  const isReady = useRef(false)
+
+  useEffect(() => {
+    audioRef.current.pause()
+    dispatch(setIsPlaying(false))
+    audioRef.current = new Audio(track_file)
+    dispatch(setCurrentTrack(track_file))
+    setTrackProgress(audioRef.current.currentTime)
+
+    if (isPlaying && isReady.current) {
+      audioRef.current.play()
+      dispatch(setIsPlaying(true))
+      startTimer()
+    } else {
+      isReady.current = true
+    }
+  }, [trackIndex])
+
+  useEffect(() => {
+    audioRef.current.pause()
+    dispatch(setIsPlaying(false))
+    dispatch(setTrackIndex(0))
+    clearInterval(intervalRef.current)
+    audioRef.current = new Audio(track_file)
+    dispatch(setCurrentTrack(track_file))
+    setTrackProgress(audioRef.current.currentTime)
+    isReady.current = true
+  }, [controls, sort])
 
   const colorTrackBar = changeTrackStyling(duration, trackProgress, theme)
 
@@ -84,7 +92,11 @@ const Player = () => {
     clearInterval(intervalRef.current)
     intervalRef.current = setInterval(() => {
       if (audioRef.current.ended) {
-        nextTrack()
+        if (tracks.length === 1) {
+          audioRef.current.pause()
+          dispatch(setIsPlaying(false))
+          clearInterval(intervalRef.current)
+        } else nextTrack()
       } else {
         setTrackProgress(audioRef.current.currentTime)
       }
@@ -99,48 +111,44 @@ const Player = () => {
 
   const onScrubEnd = () => {
     if (!isPlaying) {
-      setIsPlaying(true)
+      dispatch(setIsPlaying(true))
     }
     startTimer()
   }
 
+  const onPlayPauseClick = () => {
+    dispatch(setIsPlaying(!isPlaying))
+  }
+
   const prevTrack = () => {
     if (trackIndex - 1 < 0) {
-      setTrackIndex(audioTracks.length - 1)
+      dispatch(setTrackIndex(tracks.length - 1))
     } else {
-      setTrackIndex(trackIndex - 1)
+      dispatch(setTrackIndex(trackIndex - 1))
     }
   }
 
   const nextTrack = () => {
-    if (trackIndex < audioTracks.length - 1) {
-      setTrackIndex(trackIndex + 1)
+    if (trackIndex < tracks.length - 1) {
+      dispatch(setTrackIndex(trackIndex + 1))
     } else {
-      setTrackIndex(0)
+      dispatch(setTrackIndex(0))
     }
   }
 
   const repeatTrack = () => {
-    if (!activeRepeat) {
-      setActiveRepeat(true)
-      audioRef.current.loop = true
-    } else {
-      setActiveRepeat(false)
-      audioRef.current.loop = false
-      if (audioRef.current.ended) {
-        nextTrack()
-      }
-    }
+    dispatch(setRepeat(!repeat))
   }
 
   const shuffleTracks = () => {
-    const shuffleTracks = Object.assign([], audioTracks)
-    shuffleTracks.sort(() => Math.random() - 0.5)
-    console.log(shuffleTracks)
+    dispatch(setId(''))
+    dispatch(shuffle())
+    dispatch(setSort())
+  }
 
-    setAudioTracks(shuffleTracks)
-    audioRef.current.currentTime = 0
-    setTrackIndex(0)
+  const changeVolume = (value) => {
+    const percent = 100
+    return setVolume(value / percent)
   }
 
   return (
@@ -159,20 +167,23 @@ const Player = () => {
           style={{
             background: `${colorTrackBar}`,
           }}
+          disabled={tracks.length > 0 ? false : true}
         />
         <div className={classes.playerBlock}>
           <Controls
-            title={track.title}
-            author={track.author}
+            id={id}
+            title={name}
+            author={author}
             isPlaying={isPlaying}
-            onPlayPauseClick={setIsPlaying}
+            onPlayPauseClick={onPlayPauseClick}
             onPrevClick={prevTrack}
             onNextClick={nextTrack}
             onRepeatTrack={repeatTrack}
-            activeRepeat={activeRepeat}
+            activeRepeat={repeat}
             onShuffleTracks={shuffleTracks}
+            disabled={tracks.length > 0 ? false : true}
           />
-          <Volume />
+          <Volume changeVolume={changeVolume} />
         </div>
       </div>
     </div>

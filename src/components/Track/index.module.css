@@ -1,7 +1,10 @@
 .item {
   width: 100%;
-  display: block;
   margin-bottom: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .track {

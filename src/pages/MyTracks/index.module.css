@@ -1,5 +1,7 @@
 .wrapper {
-  margin-right: 418px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .searchBlock {

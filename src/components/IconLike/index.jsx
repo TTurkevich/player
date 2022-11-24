@@ -6,10 +6,14 @@ import Like from '../Icons/Like'
 
 import classes from './index.module.css'
 
-const IconLike = () => {
+const IconLike = ({ active }) => {
   const { theme } = useTheme()
 
-  return <Like className={cn(classes.icon, classes[theme])} />
+  return (
+    <Like
+      className={cn(classes.icon, classes[theme], active ? classes.active : '')}
+    />
+  )
 }
 
 export default IconLike

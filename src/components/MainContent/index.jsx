@@ -1,17 +1,17 @@
 import classes from './index.module.css'
 
+import FilterGroup from '../../features/controls/FilterGroup'
 import Heading from '../Heading'
-import Filter from '../Filter'
-import Search from '../Search'
-import TrackTable from './TrackTable'
+import PlaylistMain from '../Playlists/MainPlaylist'
+import Search from '../../features/controls/Search'
 
 const MainContent = () => {
   return (
     <>
       <Search className={classes.searchBlock} />
       <Heading className={classes.heading} text="Треки" />
-      <Filter className={classes.filterBlock} />
-      <TrackTable />
+      <FilterGroup className={classes.filterBlock} />
+      <PlaylistMain />
     </>
   )
 }

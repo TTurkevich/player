@@ -31,3 +31,15 @@
   stroke: #ad61ff;
   fill: #ad61ff;
 }
+
+.active.light {
+  stroke: #ad61ff;
+  fill: #ad61ff;
+}
+
+.active.dark {
+  stroke: #fff;
+  fill: #696969;
+}
+
+

@@ -1,0 +1,26 @@
+.playlist {
+  height: 622px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 100px;
+}
+::-webkit-scrollbar-track {
+  background-color: inherit;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset;
+}
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 65px;
+  border-radius: 8px;
+  border: 6px solid;
+  border-color: #b1b1b1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: blue;
+}

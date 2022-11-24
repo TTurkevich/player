@@ -1,11 +1,9 @@
 .wrapper {
-  margin-right: 418px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .searchBlock {
   margin-bottom: 51px;
-}
-
-.heading {
-  margin-bottom: 45px;
 }

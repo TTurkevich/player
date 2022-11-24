@@ -8,6 +8,7 @@ import Buttons from '../Buttons'
 import TrackPlay from '../TrackPlay'
 
 const Controls = ({
+  id,
   title,
   author,
   isPlaying,
@@ -17,6 +18,7 @@ const Controls = ({
   onRepeatTrack,
   activeRepeat,
   onShuffleTracks,
+  disabled,
 }) => {
   const [loading, setLoading] = useState(false)
 
@@ -24,7 +26,7 @@ const Controls = ({
     setLoading(true)
     const timing = setTimeout(() => {
       setLoading(false)
-    }, 5000)
+    }, 3000)
     return () => clearTimeout(timing)
   }, [])
 
@@ -38,11 +40,12 @@ const Controls = ({
         onRepeatTrack={onRepeatTrack}
         activeRepeat={activeRepeat}
         onShuffleTracks={onShuffleTracks}
+        disabled={disabled}
       />
       <div className={classes.trackPlay}>
         {loading && <SkeletonTrackPlay />}
         {!loading && <TrackPlay title={title} author={author} />}
-        <LikeDislike />
+        <LikeDislike id={id} disabled={disabled} />
       </div>
     </div>
   )

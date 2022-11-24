@@ -1,14 +1,27 @@
-import cn from 'classnames'
-import { NavLink, useNavigate } from 'react-router-dom'
-import useAuthContext from '../../../Auth/useAuthContext'
+import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 import Toggle from '../Toggle'
 
+import cn from 'classnames'
 import classes from './index.module.css'
 
+import { removePlayer } from '../../../features/player/player-slice'
+import { revertAll } from '../../../features/general-action'
+import { useCleanUp } from '../../../features/controls/use-cleanup'
+
 const Menu = ({ active, setActive }) => {
-  const { logout } = useAuthContext()
-  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const cleanUp = useCleanUp()
+
+  const logOut = () => {
+    dispatch(revertAll())
+  }
+
+  const handleClick = () => {
+    dispatch(removePlayer())
+    cleanUp()
+  }
 
   return (
     <div
@@ -16,7 +29,7 @@ const Menu = ({ active, setActive }) => {
       onClick={() => setActive(false)}
     >
       <ul className={classes.list}>
-        <li className={classes.item}>
+        <li className={classes.item} onClick={handleClick}>
           <NavLink
             className={({ isActive }) =>
               isActive ? classes.activeLink : classes.link
@@ -26,23 +39,22 @@ const Menu = ({ active, setActive }) => {
             Главное
           </NavLink>
         </li>
-        <li className={classes.item}>
+        <li className={classes.item} onClick={handleClick}>
           <NavLink
             className={({ isActive }) =>
               isActive ? classes.activeLink : classes.link
             }
-            to="/myTracks"
+            to="/favorite"
           >
             Мой плейлист
           </NavLink>
         </li>
-        <li className={classes.item}>
+        <li className={classes.item} onClick={logOut}>
           <NavLink
             className={({ isActive }) =>
               isActive ? classes.activeLink : classes.link
             }
-            to="/logIn"
-            onClick={() => logout(() => navigate('/', { replace: true }))}
+            to="/login"
           >
             Выйти
           </NavLink>
